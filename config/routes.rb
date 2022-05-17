@@ -1,44 +1,42 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/complete'
-    get 'orders/index'
-    get 'orders/show'
+
+
+  devise_for :customers, controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+  }
+
+  devise_for :admin, controllers: {
+    sessions: "admin/sessions"
+  }
+
+
+  root to: 'public/homes#top'
+
+
+  scope module: :public do
+    get 'about' => 'homes#about'
+    resources :orders, only: [:new, :index, :show, :create]
+    get 'orders/complete' => 'orders#complete'
+    post 'orders/confirm' => 'orders#confirm'
+    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :items, only: [:show, :index]
+    resources :deliveries, only: [:index, :destroy, :edit, :update, :create]
+    resource :customers, only: [:show, :edit, :update]
+    patch 'customers/withdraw' => 'customers#withdraw'
+    get 'customers/quit' => 'customers#quit'
   end
+
+  
+
   namespace :admin do
-    get 'orders/show'
+    get '/' => 'homes#top'
+    resources :orders, only: [:show, :update]
+    resources :genres, only: [:index, :edit, :update, :create]
+    resources :items, only: [:index, :show, :new, :edit, :update, :create]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :order_details, only: [:update]
   end
-  get 'cart_items/index'
-  namespace :admins do
-    get 'genre/index'
-    get 'genre/edit'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/new'
-    get 'items/edit'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
-  namespace :public do
-    get 'deliveries/index'
-    get 'deliveries/edit'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/quit'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  devise_for :admins
-  devise_for :customers
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
