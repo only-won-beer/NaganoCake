@@ -1,0 +1,14 @@
+<containar>
+  <div class="row justify-content-center">
+    <div class="col-md-10 offset-md-2">
+      <h4>ジャンル編集</h4>
+      <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+        ジャンル名
+        <%= f.text_field :name %>
+
+        <%= f.submit '変更を保存' %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</containar>
