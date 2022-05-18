@@ -9,8 +9,9 @@
         <th>税抜価格</th>
         <th>ジャンル</th>
         <th>ステータス</th>
-        <tr>
-          <% @items.each do |item| %>
+
+        <% @items.each do |item| %>
+          <tr>
             <td><%= item.id %></td>
             <td><%= link_to admin_item_path(item.id) do %>
                   <%= item.name %>
@@ -18,8 +19,8 @@
             <td><%= item.price %></td>
             <td><%= item.genre_id %></td>
             <td><%= item.is_active %></td>
-          <% end %>
-        </tr>
+          </tr>
+        <% end %>
       </table>
     </div>
   </div>
