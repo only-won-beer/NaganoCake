@@ -17,9 +17,15 @@
                   <%= item.name %>
                 <% end %></td>
             <td><%= item.price %></td>
-            <td><%= item.genre_id %></td>
-            <td><%= item.is_active %></td>
-          </tr>
+            <td>
+              <%= item.genre.name %>
+            </td>
+            <% if item.is_active == true %>
+              <td>販売中</td>
+            <% else %>
+              <td>販売停止</td>
+            <% end %>
+            </tr>
         <% end %>
       </table>
     </div>
