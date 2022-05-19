@@ -1,4 +1,5 @@
 class Public::ItemsController < ApplicationController
+  layout 'public/application'
   def index
   end
 

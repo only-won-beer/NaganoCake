@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+  layout 'admin/application'
 
   def create
     genre = Genre.new(genre_params)
