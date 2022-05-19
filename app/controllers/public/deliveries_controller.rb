@@ -1,4 +1,5 @@
 class Public::DeliveriesController < ApplicationController
+  layout 'public/application'
   def index
     @delivery = Delivery.new
     @deliveries = Delivery.all
@@ -23,7 +24,7 @@ class Public::DeliveriesController < ApplicationController
     @delivery = Delivery.find(params[:id])
     @delivery.update(delivery_params)
     if @delivery.save
-
+     redirect_to deliveries_path(@delivery)
     else
       @deliveries = Delivery.all
       render :edit
@@ -42,4 +43,3 @@ class Public::DeliveriesController < ApplicationController
     params.require(:delivery).permit(:postcode, :address, :address_name)
   end
 end
-
