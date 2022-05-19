@@ -1,4 +1,5 @@
 class Admin::OrderdetailsController < ApplicationController
+  layout 'admin/application'
   def update
     @order_detail = OrderDetail.find(params[:id])
     @order = Order.find_by(id: @order_detail.order_id)
