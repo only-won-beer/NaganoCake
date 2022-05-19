@@ -1,6 +1,6 @@
 <containar>
   <div class="row justify-content-center">
-    <div class="col-md-10 offset-md-2">
+    <div class="col-md-">
       <h4>商品編集</h4>
       <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
         <div class='col'>
@@ -41,7 +41,6 @@
         </div>
       <%= f.submit '変更を保存' %>
       <% end %>
-      </div>
     </div>
   </div>
 </containar>

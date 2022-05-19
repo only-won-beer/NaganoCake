@@ -1,7 +1,7 @@
 
 <containar>
   <div class="row justify-content-center">
-    <div class="col-md-10 offset-md-2">
+    <div class="col">
       <h4>ジャンル一覧・追加</h4>
       <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
         ジャンル名
@@ -13,7 +13,7 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-md-10 offset-md-2">
+    <div class="col">
       <table>
         <th>ジャンル</th><th></th>
         <% @genres.each do |genre| %>
