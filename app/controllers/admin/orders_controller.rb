@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+  layout 'admin/application'
   def show
     @order = Order.find(params[:id])
     @customer = Customer.find_by(params[order_id: @order.id])
@@ -12,7 +13,7 @@ class Admin::OrdersController < ApplicationController
     if @order.status == "confirm"
       @order_details.update_all('making_status = 1')
     end
-    
+
     redirect_to request.referer
   end
 

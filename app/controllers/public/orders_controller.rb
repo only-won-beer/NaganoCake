@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  layout 'public/application'
+
   def new
   end
 
