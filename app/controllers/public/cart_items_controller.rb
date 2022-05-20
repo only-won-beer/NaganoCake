@@ -4,7 +4,7 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
-    @total_price = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    
     @order = Order.new
   end
 
@@ -35,7 +35,7 @@ class Public::CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
     if @cart_item.update(cart_item_params)
-      flash[:notice] = "商品の数量が更新されました"
+      
       redirect_to request.referer
     else
       render :index
@@ -45,13 +45,13 @@ class Public::CartItemsController < ApplicationController
   def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
-    flash[:notice] = "カートの商品が削除されました"
+    
     redirect_to request.referer
   end
 
   def destroy_all
     current_customer.cart_items.destroy_all
-    flash[:notice] = "カートの商品が全て削除されました"
+    
     redirect_to request.referer
   end
 
