@@ -27,16 +27,21 @@
           </tr>
           <tr>
             <td>
-              <%= form_with model: @item do |f| %>
-                <%= f.select :quantity, [["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"], ["6","6"], ["7","7"], ["8","8"], ["9","9"]], include_blank: "個数選択" %>
-              <% end %>
+               <%= form_with model:@cart_item, url: '/cart_items/', method: :post, local:true do |f| %>
+                  <div class="d-flex align-items-end mt-3">
+                    <div class="form-group">
+                      <%= f.hidden_field :item_id, :value => @item.id %>
+                      <%= f.select :quantity, *[1..10], include_blank: '個数選択'%>
+                    </div>
+                    <div class="form-group offset-1">
+                      <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+                    </div>
+                  </div>
+                <% end %>
             </td>
           </tr>
         </table>
       </div>
     </div>
 
-    <div class="row justify-content-center">
-      <%= link_to "カートに入れる", cart_items_path(@item) %>
-    </div>
 </containar>
