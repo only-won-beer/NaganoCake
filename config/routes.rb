@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
 
   root to: 'public/homes#top'
+  
+  get 'customer/edit' => 'public/customers#edit'
+  patch 'customer/e' => 'public/customers#update'
 
 
   scope module: :public do
@@ -23,12 +26,13 @@ Rails.application.routes.draw do
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :items, only: [:show, :index]
     resources :deliveries, only: [:index, :destroy, :edit, :update, :create]
-    resource :customers, only: [:show, :edit, :update]
+    resource :customers, only: [:show]
+
     patch 'customers/withdraw' => 'customers#withdraw'
     get 'customers/quit' => 'customers#quit'
   end
 
-  
+
 
   namespace :admin do
     get '/' => 'homes#top'
