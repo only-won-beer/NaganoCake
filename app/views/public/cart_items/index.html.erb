@@ -1,6 +1,42 @@
-
-
-<% @cart_items.each do |cart_item| %>
-  <%= cart_item.item.name %>
-  <%= cart_item.quantity %>
+<% @cart_items.each do |cart_item| %> 
+  <table>
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価税込</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= cart_item.item.name %></td>
+        <td><%= (cart_item.item.price* 1.1).floor %></td>
+        <td>
+          <%= form_with model:cart_item, method: :patch, local:true do |f| %>
+            <div class="d-flex align-items-end mt-3">
+              <div class="form-group">
+                <%= f.select :quantity, *[1..100] %>
+              </div>
+              <div class="form-group offset-1">
+                <%= f.submit "変更", class: 'btn btn-success' %>
+              </div>
+            </div>
+          <% end %>
+        </td>
+        <td><%= (cart_item.item.price* 1.1).floor*cart_item.quantity %></td>
+        <td>デリート</td>
+      </tr>
+    </tbody>
+    
+  </table>
 <% end %>
+<table>
+  <tr>
+    <th>合計</th>
+    <td><%= @total_price.to_s(:delimited) %></td>
+  </tr>
+</table>
+
+  <%= link_to "カートを空にする", cart_item_cart_items_destroy_all_path(current_customer.cart_items), method: :delete %>

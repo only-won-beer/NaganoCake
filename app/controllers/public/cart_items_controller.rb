@@ -4,7 +4,7 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
-    
+    @total_price = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @order = Order.new
   end
 
