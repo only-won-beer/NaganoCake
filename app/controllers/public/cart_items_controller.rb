@@ -14,13 +14,13 @@ class Public::CartItemsController < ApplicationController
       @new_cart_item = CartItem.new(cart_item_params)
       @cart_item = current_customer.cart_items.find_by(item_id: @item.id)
       @cart_item.quantity += @new_cart_item.quantity
-      @cart_item.save
+      @cart_item.save!
       flash[:notice] = "カートに商品が追加されました"
       redirect_to cart_items_path
     else
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
-      if @cart_item.save
+      if @cart_item.save!
         flash[:notice] = "カートに商品が追加されました"
         redirect_to cart_items_path
       else
