@@ -27,13 +27,13 @@
           <div class="form-group offset-1">
             <%= f.submit "カートに入れる", class: 'btn btn-success' %>
           </div>
-          <%= render 'public/items/favorite', item: @item %>
+          <div class="favorite-btn_<%= @item.id %>"><%= render 'public/favorites/favorite', item: @item %></div
         </div>
       <% end %>
     </div>
     <div>
-      <%= render 'public/items/review', item: @item,review: @review %>
-      <%= render 'public/items/review_index', item: @item %>
+      <%= render 'public/reviews/review', item: @item,review: @review %>
+      <%= render 'public/reviews/review_index', item: @item %>
 
     </div>
   </div>
