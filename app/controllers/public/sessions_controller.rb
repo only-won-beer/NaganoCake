@@ -3,26 +3,25 @@
 class Public::SessionsController < Devise::SessionsController
   layout 'public/application'
   # before_action :configure_sign_in_params, only: [:create]
-  # before_action :customer_state, only: [:create]
+  before_action :customer_state, only: [:create]
 
 protected
 
 # 退会しているかを判断するメソッド
-# def customer_state
-#     ## 【処理内容1】 入力されたemailからアカウントを1件取得
-#     @customer = Customer.find_by(email: params[:customer][:email])
-#     ## アカウントを取得できなかった場合、このメソッドを終了する
-#     ## もし@customerがある（!true=false）なら下の処理へ、ない（!false=true）ならreturnして
-#     return if !@customer
-#     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致（true）　かつ　is_withdrawalが（false）
-#     if @customer.valid_password?(params[:customer][:password]) && !(@customer.is_deleted?)
-#     ## 【処理内容3】（!false=true）だった場合、退会していないのでcreateを実行
-#     render action_create
-#     else
-#     ## !true（false）だった場合、退会しているのでサインアップ画面に遷移する
-#     redirect_to new_customer_registration_path
-#     end
-# end
+def customer_state
+    ## 【処理内容1】 入力されたemailからアカウントを1件取得
+    @customer = Customer.find_by(email: params[:customer][:email])
+    ## アカウントを取得できなかった場合、このメソッドを終了する
+    ## もし@customerがある（!true=false）なら下の処理へ、ない（!false=true）ならreturnして
+    return if !@customer
+    ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致（true）　かつ　is_withdrawalが（false）
+    if @customer.valid_password?(params[:customer][:password]) && !(@customer.is_deleted?)
+    ## 【処理内容3】（!false=true）だった場合、退会していないのでcreateを実行
+    else
+    ## !true（false）だった場合、退会しているのでサインアップ画面に遷移する
+    redirect_to new_customer_registration_path
+    end
+end
 
 
 

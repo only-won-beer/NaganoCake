@@ -5,8 +5,11 @@
 <div>
   <h3>新着商品</h3>
   <div class="new_item">
-
-
+    <% @newitems.each do |item| %>
+      <%=image_tag item.get_image(100,100) %></br>
+    　<%= item.name %>
+      ¥<%= item.price.to_s(:delimited) %>
+    <% end %>
   </div>
   <%= link_to "全ての商品を見る", items_path, class: 'text-right' %>
 </div>
