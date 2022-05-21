@@ -1,17 +1,20 @@
 class Public::ItemsController < ApplicationController
   layout 'public/application'
 
-
-
   def show
-    @items = Item.all
     @item = Item.find(params[:id])
+    @genres = Genre.all
     @cart_item = CartItem.new
   end
 
-
   def index
-    @items = Item.all
+    @genres = Genre.all
+    if params[:genre_id]
+      @genre = Genre.find(params[:genre_id])
+      @items = @genre.items
+    else
+      @items = Item.all
+    end
   end
 
 end
