@@ -1,47 +1,35 @@
-<containar>
-  <div class="row justify-content-center">
-    <h4>商品詳細</h4>
+<div class="row">
+  <div class="col-2 offset-2 mt-3 pt-3">
+    <p>ジャンル検索</p>
+    <% @genres.each do |genre| %>
+      <div class="my-4">
+        <%= link_to genre.name, items_path(genre_id: genre.id) %><br>
+      </div>
+    <% end %>
   </div>
-    <div class="row justify-content-center">
-      <div class="col-md-2">
-        <p>ジャンル検索</p>
-        <!--< @items.each do |item| %>-->
-        <!-- <= link_to '<= genre.name %>', items_path(genre.id) %>-->
-        <!--< end %>-->
-      </div>
-      <div class="col-md-3"></div>
-      <div class="col-md-2">
-        <%= image_tag @item.get_image(200, 200) %>
-      </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-4">
-        <table>
-          <tr>
-            <td><%= @item.name %></td>
-          </tr>
-          <tr>
-            <td><%= @item.description %></td>
-          </tr>
-          <tr>
-            <td>￥<%= (@item.price * 1.1).floor %>(税込み）</td>
-          </tr>
-          <tr>
-            <td>
-               <%= form_with model:@cart_item, url: '/cart_items/', method: :post, local:true do |f| %>
-                  <div class="d-flex align-items-end mt-3">
-                    <div class="form-group">
-                      <%= f.hidden_field :item_id, :value => @item.id %>
-                      <%= f.select :quantity, *[1..10], include_blank: '個数選択'%>
-                    </div>
-                    <div class="form-group offset-1">
-                      <%= f.submit "カートに入れる", class: 'btn btn-success' %>
-                    </div>
-                  </div>
-                <% end %>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="col-4 ml-5 mt-5">
+    
+    <%= image_tag @item.get_image(400, 280) %>
+    <div class="my-4 ml-3">
+      <h3><%= @item.name %></h3>
+      <%= @item.description %>
     </div>
-
-</containar>
+    <div class="ml-3">
+      <p><span class="font-weight-bold">￥<%= (@item.price * 1.1).floor %>(税込み)</span></p>
+      <%= form_with model:@cart_item, url: '/cart_items/', method: :post, local:true do |f| %>
+        <div class="d-flex align-items-end mt-3">
+          <div class="form-group">
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.select :quantity, *[1..10], include_blank: '個数選択'%>
+          </div>
+        
+          <div class="form-group offset-1">
+            <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+   
+          
