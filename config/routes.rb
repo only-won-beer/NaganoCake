@@ -15,13 +15,14 @@ Rails.application.routes.draw do
   
   get 'customer/edit' => 'public/customers#edit'
   patch 'customer/e' => 'public/customers#update'
-
+  
 
   scope module: :public do
+    
     get 'about' => 'homes#about'
-    resources :orders, only: [:new, :index, :show, :create]
     get 'orders/complete' => 'orders#complete'
     post 'orders/confirm' => 'orders#confirm'
+    resources :orders, only: [:new, :index, :show, :create]
     resources :cart_items, only: [:index, :create, :update, :destroy]do
       delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     end
