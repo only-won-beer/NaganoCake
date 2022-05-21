@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to:genre
   has_many :order_details
   has_many :cart_items
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :image
 
@@ -12,6 +13,10 @@ class Item < ApplicationRecord
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
       image.variant(resize_to_limit: [width, height]).processed
+  end
+  
+  def favorited_by?(customer)
+    favorites.exists?(customer_id: customer.id)
   end
 
 end
