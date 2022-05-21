@@ -1,4 +1,12 @@
 class ApplicationController < ActionController::Base
+  # URLにadminが含まれないページはcustomerでログインしないと見れないよ、でもexceptの項目はログインしなくても見れるよ
+  before_action :authenticate_customer!,except:  [:top,:about,:index,:show], unless: [:admin_url]
+  # URLにadminが含まれるページはadminにログインしないと見れないよ
+  before_action :authenticate_admin!, if: :admin_url
+
+  def admin_url
+    request.fullpath.include?("/admin")
+  end
 
   # deviseの初期設定ではメールアドレスしか保存されないので、他の項目を増やす為の記述
   protect_from_forgery with: :exception

@@ -4,6 +4,7 @@ class Admin::SessionsController < Devise::SessionsController
   layout 'admin/application'
   # before_action :configure_sign_in_params, only: [:create]
 
+
   protected
 
   def after_sign_in_path_for(resource)
