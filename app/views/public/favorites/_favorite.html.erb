@@ -1,9 +1,9 @@
 <% if item.favorited_by?(current_customer) %>
-  <%= link_to item_favorites_path(item), class: 'text-danger',method: :delete, remote: true do %>
-    ♥<%= item.favorites.count %>
+  <%= link_to item_favorites_path(item), method: :delete, remote: true do %>
+    <i class="fas fa-heart"></i><%= item.favorites.count %>
   <% end %>
 <% else %>
   <%= link_to item_favorites_path(item), method: :post, remote: true do %>
-    ♡<%= item.favorites.count %>
+    <i class="far fa-heart"></i><%= item.favorites.count %>
   <% end %>
 <% end %>

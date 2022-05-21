@@ -1,0 +1,4 @@
+$(".review_index_<%= @item.id %>").html("<%= escape_javascript(render partial: 'public/reviews/reviews_index', locals: {item: @item}) %>");
+$('.rev_title').val("");
+$('.review_body').val("");
+$('#review_star').val("");

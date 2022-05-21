@@ -16,6 +16,8 @@
     </div>
     <div class="ml-3">
       <p><span class="font-weight-bold">￥<%= (@item.price * 1.1).floor %>(税込み)</span></p>
+      <div class="favorite-btn_<%= @item.id %>"><%= render 'public/favorites/favorite', item: @item %></div
+
 
       <%= form_with model:@cart_item, url: '/cart_items/', method: :post, local:true do |f| %>
         <div class="d-flex align-items-end mt-3">
@@ -27,15 +29,16 @@
           <div class="form-group offset-1">
             <%= f.submit "カートに入れる", class: 'btn btn-success' %>
           </div>
-          <div class="favorite-btn_<%= @item.id %>"><%= render 'public/favorites/favorite', item: @item %></div
         </div>
       <% end %>
-    </div>
-    <div>
-      <%= render 'public/reviews/review', item: @item,review: @review %>
-      <%= render 'public/reviews/review_index', item: @item %>
-
     </div>
   </div>
 </div>
 
+<div class="row offset-2">
+
+  <div class="col-2"><%= render 'public/reviews/form', item: @item,review: @review %></div>
+  <div class="col-8">
+    <div class="review_index_<%= @item.id %>"><%= render 'public/reviews/reviews_index', item: @item %></div>
+  </div>
+</div>

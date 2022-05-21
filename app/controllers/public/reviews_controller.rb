@@ -6,12 +6,13 @@ class Public::ReviewsController < ApplicationController
     @review.customer_id = current_customer.id
     @review.item_id = @item.id
     @review.save
-    redirect_to items_path
+    render :index
   end
 
   def destroy
-    Item.find(params[:item_id]).destroy
-    redirect_to item_path
+    @item = Item.find(params[:item_id])
+    Review.find(params[:id]).destroy
+    render :index
   end
 
   private
