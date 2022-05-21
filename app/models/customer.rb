@@ -8,11 +8,12 @@ class Customer < ApplicationRecord
   has_many :cart_items
   has_many :orders
   has_many :items, through: :cart_items
+  has_many :favorites, dependent: :destroy
 
   def full_name
     self.last_name + self.first_name
   end
-  
+
   def full_address
      '〒' + postcode + ' ' + address
   end

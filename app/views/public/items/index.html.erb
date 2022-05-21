@@ -25,7 +25,8 @@
           <%= image_tag item.get_image(200, 200) %>
           <p><%= item.name %></p>
         <% end %>
-        <p>￥<%= item.price %>(税込み)</p>
+        <p>￥<%= (item.price * 1.1).floor %>(税込み)</p>
+        <%= render 'public/items/favorite', item: item %>
       </div>
     <% end %>
   </div>
