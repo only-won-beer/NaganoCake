@@ -4,9 +4,9 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       
       t.integer :customer_id
       t.integer :item_id
-      t.float :star
-      t.string :title
-      t.text :body
+      t.float :star, null: false
+      t.string :title, null: false
+      t.text :body, null: false
 
       t.timestamps
     end

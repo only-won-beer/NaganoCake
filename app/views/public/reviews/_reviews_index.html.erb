@@ -2,6 +2,7 @@
   <% item.reviews.each do |review|%>
 
     <div class="col-8 m-4 pt-2 pb-2 border table-background text-left">
+      <p>Name : <%= review.customer.nick_name %></p>
       <p>
         Title : <%= review.title %>
         <% if review.customer == current_customer %>

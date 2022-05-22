@@ -33,6 +33,15 @@
 
       <div class="field">
         <tr>
+          <th>レビュー投稿時の表示名</th>
+          <td>
+            <%= f.text_field :nick_name %>
+          </td>
+        </tr>
+      </div>
+
+      <div class="field">
+        <tr>
           <th><%= f.label :メールアドレス, class: "form-label" %></th>
           <td><%= f.email_field :email, autocomplete: "email" %></td>
         </tr>

@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_125015) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "item_id"
-    t.integer "quantity"
+    t.integer "quantity", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -66,14 +66,15 @@ ActiveRecord::Schema.define(version: 2022_05_21_125015) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.string "postcode"
-    t.string "address"
-    t.string "phone_number"
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
     t.boolean "is_deleted", default: false
+    t.string "nick_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -82,9 +83,9 @@ ActiveRecord::Schema.define(version: 2022_05_21_125015) do
 
   create_table "deliveries", force: :cascade do |t|
     t.integer "customer_id"
-    t.string "address_name"
-    t.string "postcode"
-    t.string "address"
+    t.string "address_name", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -97,17 +98,17 @@ ActiveRecord::Schema.define(version: 2022_05_21_125015) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.integer "genre_id"
-    t.string "name"
-    t.integer "price"
+    t.string "name", null: false
+    t.integer "price", null: false
     t.boolean "is_active", default: true
-    t.text "description"
+    t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -115,22 +116,22 @@ ActiveRecord::Schema.define(version: 2022_05_21_125015) do
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id"
     t.integer "item_id"
-    t.integer "production_status"
-    t.integer "quantity"
-    t.integer "price"
+    t.integer "production_status", null: false
+    t.integer "quantity", null: false
+    t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "pay_way"
-    t.integer "postage"
+    t.integer "pay_way", null: false
+    t.integer "postage", null: false
     t.integer "status"
-    t.string "postcode"
-    t.string "address"
-    t.string "address_name"
-    t.integer "total_pay"
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.string "address_name", null: false
+    t.integer "total_pay", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -138,9 +139,9 @@ ActiveRecord::Schema.define(version: 2022_05_21_125015) do
   create_table "reviews", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "item_id"
-    t.float "star"
-    t.string "title"
-    t.text "body"
+    t.float "star", null: false
+    t.string "title", null: false
+    t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

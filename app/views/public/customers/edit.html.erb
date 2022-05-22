@@ -31,6 +31,15 @@
 
       <div class="field">
         <tr>
+          <th>レビュー投稿時の表示名</th>
+          <td>
+            <%= f.text_field :nick_name %>
+          </td>
+        </tr>
+      </div>
+
+      <div class="field">
+        <tr>
           <th><%= f.label :郵便番号（ハイフンなし）, class: "form-label" %></th>
           <td><%= f.text_field :postcode %></td>
         </tr>

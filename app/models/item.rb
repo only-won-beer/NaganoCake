@@ -9,6 +9,11 @@ class Item < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   has_one_attached :image
+  
+  validates :name, presence: true, uniqueness: true
+  validates :price, presence: true
+  validates :is_active, presence: true
+  validates :description, presence: true
 
   def get_image(width, height)
     unless image.attached?

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # URLにadminが含まれないページはcustomerでログインしないと見れないよ、でもexceptの項目はログインしなくても見れるよ
   before_action :authenticate_customer!,except:  [:top,:about,:index,:show], unless: [:admin_url]
   # URLにadminが含まれるページはadminにログインしないと見れないよ
-  before_action :authenticate_admin!, if: :admin_url
+  # before_action :authenticate_admin!, if: :admin_url
 
   def admin_url
     request.fullpath.include?("/admin")
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
 
     if resource_class == Customer
-      devise_parameter_sanitizer.permit(:sign_up, keys: [ :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :address, :phone_number, :password, :password_confirmation ])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [ :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :address, :phone_number, :password, :password_confirmation, :nick_name ])
       devise_parameter_sanitizer.permit(:sign_in,keys:[:email])
-      devise_parameter_sanitizer.permit(:account_update,keys:[ :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :address, :phone_number])
+      devise_parameter_sanitizer.permit(:account_update,keys:[ :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :address, :phone_number, :nick_name])
     else
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email])
       devise_parameter_sanitizer.permit(:sign_in,keys:[:email])

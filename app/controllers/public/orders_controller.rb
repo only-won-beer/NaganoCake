@@ -34,7 +34,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    
+
     if params[:order][:select_address] == "0"
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
@@ -71,7 +71,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
-    @order = Order.find(params[:id])
   end
 
   private
