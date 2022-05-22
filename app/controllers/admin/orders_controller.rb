@@ -13,7 +13,7 @@ class Admin::OrdersController < ApplicationController
     if @order.status == "confirm"
       @order_details.update_all('production_status = 1')
     end
-
+    flash[:notice] = "注文ステータスを更新しました"
     redirect_to request.referer
   end
 
