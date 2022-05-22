@@ -1,4 +1,6 @@
 <h1>配送先編集</h1>
+
+<%= render "layouts/errors", obj: @delivery %>
 <%= form_with model: @delivery, url: delivery_path(@delivery), method: :patch do |f| %>
 
   <h4>郵便番号（ハイフンなし）</h4>

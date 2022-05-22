@@ -9,9 +9,12 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(current_customer.id)
-    @customer.update(customer_params)
-    redirect_to customers_path
-
+    if @customer.update(customer_params)
+      redirect_to customers_path
+    else
+      @customer = current_customer
+      render 'public/customers/edit'
+    end
   end
 
   def update_resource(resource, params)
