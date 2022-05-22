@@ -9,7 +9,7 @@ class Public::DeliveriesController < ApplicationController
     @delivery = Delivery.new(delivery_params)
     @delivery.customer_id = current_customer.id
     if @delivery.save
-      redirect_to deliveries_path(@delivery.id)
+      redirect_to deliveries_path
     else
       @deliveries = Delivery.all
       render :index
