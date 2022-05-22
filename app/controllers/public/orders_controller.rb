@@ -40,11 +40,11 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.address_name = current_customer.full_name
     elsif params[:order][:select_address] == "1"
-      unless current_customer.addresses.exists? #配送先登録がない場合
+      unless current_customer.deliveries.exists? #配送先登録がない場合
         flash.now[:notice] = "登録済みの住所がありません"
         render "new"
       else
-        @address = Address.find(params[:order][:address_id])
+        @delivery = Delivery.find(params[:order][:delivery_id])
         @order.postcode = @delivery.postcode
         @order.address = @delivery.address
         @order.address_name = @delivery.address_name
@@ -71,6 +71,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
+    @order = Order.find(params[:id])
   end
 
   private

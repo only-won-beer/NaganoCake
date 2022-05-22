@@ -25,11 +25,15 @@
           </tr>
           <tr>
             <td class="table-active">支払い方法</td>
-            <td><%= @order.pay_way %></td>
+              <% if @order.pay_way == 0 %>
+                <td>クレジットカード</td>
+              <% else %>
+                <td>銀行振込</td>
+              <% end %>
           </tr>
           <tr>
             <td class="table-active">ステータス</td>
-            <td><%= @order.status %></td>
+            <td><%= @order.status_i18n %></td>
           </tr>
         </tbody>
       </table>
