@@ -2,7 +2,13 @@
   <% item.reviews.each do |review|%>
 
     <div class="col-8 m-4 pt-2 pb-2 border table-background text-left">
-      <p>Title : <%= review.title %></p>
+      <p>
+        Title : <%= review.title %>
+        <% if review.customer == current_customer %>
+          <%= link_to "削除", item_review_path(review.item, review), remote: true, method: :delete %>
+        <% end %>
+      </p>
+
       <p>Opinion : <%= review.body %>
       <!--<p>Star : <= review.star %>点</p>-->
       <div id="star-rate<%= review.id %>"></div>
@@ -17,9 +23,6 @@
           score: <%= review.star %>,
         });
       </script>
-      <% if review.customer == current_customer %>
-        <%= link_to "削除", item_review_path(review.item, review), remote: true, method: :delete %>
-      <% end %>
 
     </div>
     <% end %>
