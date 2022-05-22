@@ -54,6 +54,8 @@ class Public::OrdersController < ApplicationController
         flash.now[:notice] = "住所を正しく入力してください"
         render "new"
       else
+        delivery_new = current_customer.deliveries.new(delivery_params)
+        delivery_new.save
         @order.postcode = params[:order][:postcode]
         @order.address = params[:order][:address]
         @order.address_name = params[:order][:address_name]
@@ -84,5 +86,8 @@ class Public::OrdersController < ApplicationController
         :postage,
         :total_pay
         )
+    end
+    def delivery_params
+      params.require(:order).permit(:postcode, :address, :address_name)
     end
 end
