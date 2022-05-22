@@ -17,7 +17,7 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    if @order.save!
+    if @order.save
       @cart_items = current_customer.cart_items
       @cart_items.each do |cart_item|
         @order_detail = OrderDetail.create(order_id: @order.id,
@@ -29,7 +29,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.destroy_all
       redirect_to orders_complete_path
     else
-      redirect_to root_path
+      render "confirm"
     end
   end
 
