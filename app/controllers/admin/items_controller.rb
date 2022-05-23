@@ -7,8 +7,11 @@ class Admin::ItemsController < ApplicationController
 
   def create
     item = Item.new(item_params)
-    item.save
-    redirect_to admin_items_path
+    if item.save
+      redirect_to request.referer
+    else
+      render 'index'
+    end
   end
 
 
@@ -18,7 +21,11 @@ class Admin::ItemsController < ApplicationController
 
 
   def index
+    @item = Item.new
     @items = Item.all
+    @genre = Genre.new
+    @genres = Genre.all
+
   end
 
   def edit
