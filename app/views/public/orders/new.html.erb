@@ -6,15 +6,15 @@
   <%= form_with model:@order, url: "/orders/confirm", method: :post do |f| %>
     <h4>支払方法</h4>
     <div class="field form-group pl-4">
-      <%= f.radio_button :pay_way, Order.payment_methods.key(0) %>
+      <%= f.radio_button :pay_way, Order.payment_methods.key(0), checked: true %>
       <%= f.label :pay_way, Order.payment_methods_i18n[:credit_card] %><br>
 
       <%= f.radio_button :pay_way, Order.payment_methods.key(1) %>
-      <%= f.label :pay_way, Order.payment_methods_i18n[:transfer]%>
+      <%= f.label :pay_way, Order.payment_methods_i18n[:transfer] %>
     </div>
     <h4>お届け先</h4>
     <div class="field form-group pl-4">
-      <%= f.radio_button :select_address, 0 %><%= f.label :ご自身の住所 %>
+      <%= f.radio_button :select_address, 0, checked: true %><%= f.label :ご自身の住所 %>
       <div class="pl-4 mb-2">
         <%= current_customer.full_address %><br>
         <%= current_customer.full_name %>
