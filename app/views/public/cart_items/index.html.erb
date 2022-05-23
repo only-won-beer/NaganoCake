@@ -1,22 +1,25 @@
-<div class="row col-11 offset-1 mb-5">
+<div class="row col-11 offset-1 mt-5 mb-5">
   <h3 class="mini-title">ショッピングカート</h3>
 </div>
 
-<div class="col-9 offset-1">
-  <% @cart_items.each do |cart_item| %>
+<div class"row">
+  <div class="col-11 offset-1 justify-content-center mt-5">
     <table class="table mx-5 table-bordered table-background">
       <thead class="thead-light">
         <tr>
           <th class="col-4">商品名</th>
+          <th></th>
           <th>単価税込</th>
           <th class="col-2">数量</th>
           <th>小計</th>
           <th></th>
         </tr>
       </thead>
-      <tbody>
+      <% @cart_items.each do |cart_item| %>
+      <tbody class="bg-light">
         <tr>
           <td class="col-2"><%= cart_item.item.name %></td>
+          <td><%= image_tag cart_item.item.get_image(100,100) %></td>
           <td><%= (cart_item.item.price* 1.1).floor.to_s(:delimited) %></td>
           <td>
             <%= form_with model:cart_item, method: :patch, local:true do |f| %>
@@ -34,17 +37,20 @@
           </td>
         </tr>
       </tbody>
+      <% end %>
     </table>
-  <% end %>
+  </div>
 </div>
 
-<div class="row offset-1 my-4">
+<div class="row offset-1 my-4 justify-content-end">
   <div class="col-4 offset-5">
     <table class="table table-bordered table-background">
-      <tr>
-        <th class="table-active">合計</th>
-        <td><%= @total_price.to_s(:delimited) %></td>
-      </tr>
+      <thead class="thead-light">
+        <tr>
+          <th>合計</th>
+          <td class="bg-light"><%= @total_price.to_s(:delimited) %></td>
+        </tr>
+      </thead>
     </table>
   </div>
 </div>
