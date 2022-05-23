@@ -6,9 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload'%>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body>
@@ -83,10 +84,27 @@
     <div id="flash-success">
       <%=render "layouts/notice" %>
     </div>
+
     <main>
-    <%= yield %>
+
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-9">
+              <%= yield %>
+              </div>
+            <div class="col-2">
+             
+            </div>
+          </div>
+
+
     </main>
-    <footer class="text-center text-light" style="background-color:gray">©︎only-won-beer</footer>
+      <footer class="footer"><div class="image-box"></div></footer>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!--自作のJS-->
+<script src="js/6-1-2.js"></script>
   </body>
 </html>
 
