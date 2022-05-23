@@ -5,7 +5,7 @@
 <div class="row col-11 mx-5">
   <div class="col-7">
   <table class="table mx-5 table-bordered table-background">
-    <thead class="thead-light">
+    <thead class="thead-dark">
       <tr>
         <th>商品名</th>
         <th>単価（税込）</th>
@@ -16,17 +16,17 @@
     <tbody>
       <% @cart_items.each do |cart_item| %>
         <tr>
-          <td style="width: 50%">
+          <td style="width: 50%" class="text-light">
             <%= image_tag cart_item.item.image, size: '70x50' %>
             <%= cart_item.item.name %>
           </td>
-          <td style="width: 17%">
+          <td style="width: 17%" class="text-light">
             <%= cart_item.item.with_tax_price.to_s(:delimited) %>
           </td>
-          <td style="width: 16%">
+          <td style="width: 16%" class="text-light">
             <%= cart_item.quantity %>
           </td>
-          <td style="width: 17%">
+          <td style="width: 17%" class="text-light">
             <%= cart_item.subtotal.to_s(:delimited) %>
           </td>
         </tr>
@@ -38,16 +38,16 @@
   <div class="col-4 offset-1">
   <table class="table table-bordered">
     <tr class="table-background">
-      <td style="width: 50%" class="table-active">送料</td>
-      <td style="width: 50%">800</td>
+      <td style="width: 50%" class="table-active text-light">送料</td>
+      <td style="width: 50%" class="text-light">800</td>
     </tr>
     <tr class="table-background">
-      <td style="width: 50%" class="table-active">商品合計</td>
-      <td style="width: 50%"><%= @items_price.to_s(:delimited) %></td>
+      <td style="width: 50%" class="table-active text-light">商品合計</td>
+      <td style="width: 50%" class="text-light"><%= @items_price.to_s(:delimited) %></td>
     </tr>
     <tr class="table-background">
-      <td style="width: 50%" class="table-active">請求金額</td>
-      <td style="width: 50%"><%= @total_pay.to_s(:delimited) %></td>
+      <td style="width: 50%" class="table-active text-light">請求金額</td>
+      <td style="width: 50%" class="text-light"><%= @total_pay.to_s(:delimited) %></td>
     </tr>
   </table>
 </div>
