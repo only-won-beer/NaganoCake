@@ -13,7 +13,7 @@
         <div class="col-md-2">
           <%=image_tag item.get_image(180,180) %></br>
           <%= item.name %><br>
-          ¥<%= item.price.to_s(:delimited) %><br>
+          <p>¥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
           <%= link_to "詳細を見る", item_path(item) %>
         </div>
       <% end %>

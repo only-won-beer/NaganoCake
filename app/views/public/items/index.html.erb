@@ -25,7 +25,7 @@
           <%= image_tag item.get_image(200, 200) %>
           <p><%= item.name %></p>
         <% end %>
-        <p>￥<%= (item.price * 1.1).floor %>(税込み)</p>
+        <p>￥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
         <div class="favorite-btn_<%= item.id %>">
           <%= render 'public/favorites/favorite', item: item %>
           </div>
