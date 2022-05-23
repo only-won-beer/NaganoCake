@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  devise_for :customers, controllers: {
+  devise_for :customers, path: :me, controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
@@ -12,13 +12,13 @@ Rails.application.routes.draw do
 
 
   root to: 'public/homes#top'
-  
-  get 'customer/edit' => 'public/customers#edit'
-  patch 'customer/e' => 'public/customers#update'
-  
+
+
+
 
   scope module: :public do
-    
+    # get 'customer/edit' => 'customers#edit'
+    # patch 'customer/edit' => 'customers#update'
     get 'about' => 'homes#about'
     get 'orders/complete' => 'orders#complete'
     post 'orders/confirm' => 'orders#confirm'
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :deliveries, only: [:index, :destroy, :edit, :update, :create]
-    resource :customers, only: [:show]
+    resource :customers, only: [:show,:edit,:update]
 
     patch 'customers/withdraw' => 'customers#withdraw'
     get 'customers/quit' => 'customers#quit'

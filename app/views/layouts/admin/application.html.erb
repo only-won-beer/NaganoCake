@@ -12,60 +12,67 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand" href="/admin"><span>LOGO</span></a>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="row  mx-auto col-xl">
+           <div class="col-xl-2"><a class="navbar-brand" href="/admin"><span>LOGO</span></a></div>
+           <% if admin_signed_in? %>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-            <% if admin_signed_in? %>
-              <li>
-                <%=  link_to admin_items_path, class: 'nav-link text-light' do %>
-                  <i class="fas fa-users"></i> 商品一覧
+
+              <li class="nav-item active">
+                <%=  link_to admin_items_path, class: 'nav-link' do %>
+                  <i class="fas fa-beer"></i> 商品一覧
                 <% end %>
               </li>
-              <li>
-                <%= link_to admin_customers_path, class: 'nav-link text-light' do %>
-                  <i class="fas fa-home"></i> 会員一覧
+              <li class="nav-item active">
+                <%= link_to admin_customers_path, class: 'nav-link' do %>
+                  <i class="fas fa-beer"></i> 会員一覧
                 <% end %>
               </li>
-              <li>
-                <%=  link_to admin_path ,class: 'nav-link text-light' do %>
-                  <i class="fas fa-book-open"></i> 注文履歴一覧
+              <li class="nav-item active">
+                <%=  link_to admin_path ,class: 'nav-link' do %>
+                  <i class="fas fa-beer"></i> 注文履歴一覧
                 <% end %>
               </li>
-              <li>
-                <%= link_to admin_genres_path, class: 'nav-link text-light' do %>
-                  <i class="fas fa-sign-out-alt"></i> ジャンル一覧
+              <li class="nav-item active">
+                <%= link_to admin_genres_path, class: 'nav-link' do %>
+                  <i class="fas fa-beer"></i> ジャンル一覧
                 <% end %>
               </li>
-               <li>
-                <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-light' do %>
+               <li class="nav-item active">
+                <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link' do %>
                   <i class="fas fa-sign-out-alt"></i> ログアウト
                 <% end %>
               </li>
+              </ul>
+              </div>
             <% else %>
-              <li>
-                <%= link_to about_path, class: 'nav-link text-light' do %>
-                  <i class="fas fa-home"></i> About
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <%= link_to about_path, class: 'nav-link' do %>
+                  <i class="fas fa-beer"></i> About
                 <% end %>
               </li>
-              <li>
-                <%= link_to items_path, class: 'nav-link text-light' do %>
-                  <i class="fas fa-link"></i> 商品一覧
+              <li class="nav-item actheartive">
+                <%= link_to items_path, class: 'nav-link' do %>
+                  <i class="fas fa-heart"></i> PRODUCTS
                 <% end %>
               </li>
-              <li>
-                <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
-                  <i class="fas fa-user-plus"></i> 新規登録
+              <li class="nav-item active">
+                <%= link_to new_customer_registration_path, class: 'nav-link' do %>
+                  <i class="fas fa-user-plus"></i> SIGN UP
                 <% end %>
               </li>
-              <li>
-                <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
-                  <i class="fas fa-sign-in-alt"></i> ログイン
+              <li class="nav-item active">
+                <%= link_to new_customer_session_path, class: 'nav-link' do %>
+                  <i class="fas fa-sign-in-alt"></i> LOG IN
                 <% end %>
               </li>
             <% end %>
             </ul>
+          </div>
           </div>
         </div>
       </nav>

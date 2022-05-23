@@ -1,10 +1,13 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center top-image" background="images/Yoshioka/イチゴ.jpg">
+
     <p class="text-center">ようこそ、ながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
   </div>
 
-  <div>
-    <h3>新着商品</h3>
+  <div class="col-xl">
+    <div class="text-center">
+     <i class="fas fa-coffee"></i><h4 class="mx-2" style="display:inline "> New Item</h4><i class="fas fa-coffee"></i>
+    </div>
     <div class="new_item row justify-content-center">
       <% @newitems.each do |item| %>
         <div class="col-md-2">
@@ -14,7 +17,7 @@
           <%= link_to "詳細を見る", item_path(item) %>
         </div>
       <% end %>
-    </div>
-    <p class="text-right"><%= link_to "全ての商品を見る>", items_path %></p>
+     </div>
+     <p class="text-right"><%= link_to "全ての商品を見る>", items_path, class: 'link-secondary' %></p>
   </div>
 </div>

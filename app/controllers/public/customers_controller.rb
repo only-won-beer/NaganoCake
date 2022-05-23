@@ -1,4 +1,4 @@
-class Public::CustomersController < ApplicationController
+class Public::CustomersController < Public::ApplicationController
   layout 'public/application'
   def show
   end
@@ -10,10 +10,10 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(current_customer.id)
     if @customer.update(customer_params)
+      flash[:notice] = "会員情報を更新しました"
       redirect_to customers_path
     else
-      @customer = current_customer
-      render 'public/customers/edit'
+      render :edit
     end
   end
 
@@ -27,10 +27,15 @@ class Public::CustomersController < ApplicationController
   def withdraw
     #現在ログインしているユーザーを@customerに格納
     @customer = Customer.find(current_customer.id)
-    @customer.update(is_deleted: true)
-    #sessionIDのresetを行う
-    reset_session
-    redirect_to root_path
+     if @customer.update(is_deleted: true)
+       flash[:notice] = " 退会しました"
+      #sessionIDのresetを行う
+      reset_session
+      redirect_to root_path
+     else
+      flash[:notice] = " 退会に失敗しました"
+      render :show
+     end
   end
 
   private

@@ -20,6 +20,7 @@ def customer_state
     ## 【処理内容3】（!false=true）だった場合、退会していないのでcreateを実行
     else
     ## !true（false）だった場合、退会しているのでサインアップ画面に遷移する
+    flash[:notice] = "退会済みです。新規会員登録を行なってください"
     redirect_to new_customer_registration_path
     end
 end
@@ -29,11 +30,13 @@ end
   private
 
   def after_sign_in_path_for(resource)
+    flash[:notice] = "ログインしました"
     root_path
   end
 
 
   def after_sign_out_path_for(resource)
+    flash[:notice] = " ログアウトしました"
     root_path
   end
 
