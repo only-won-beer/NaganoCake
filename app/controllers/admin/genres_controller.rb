@@ -1,5 +1,7 @@
 class Admin::GenresController < ApplicationController
   layout 'admin/application'
+  protect_from_forgery
+
 
   def create
     genre = Genre.new(genre_params)

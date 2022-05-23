@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   # URLにadminが含まれるページはadminにログインしないと見れないよ
-  # before_action :authenticate_admin!, if: :admin_url
+  before_action :authenticate_admin!, if: :admin_url
 
   def admin_url
     request.fullpath.include?("/admin")
   end
-  
+
   # deviseの初期設定ではメールアドレスしか保存されないので、他の項目を増やす為の記述
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?

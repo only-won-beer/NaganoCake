@@ -1,5 +1,7 @@
 class Admin::ItemsController < ApplicationController
   layout 'admin/application'
+  protect_from_forgery
+
 
   def new
     @item = Item.new
