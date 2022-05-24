@@ -25,11 +25,8 @@
           </tr>
           <tr>
             <td class="table-active">支払い方法</td>
-              <% if @order.pay_way == 0 %>
-                <td>クレジットカード</td>
-              <% else %>
-                <td>銀行振込</td>
-              <% end %>
+            <td><%= @order.pay_way_i18n %></td>
+               
           </tr>
           <tr>
             <td class="table-active">ステータス</td>
