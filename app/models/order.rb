@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   has_many :items, through: :order_details
 
   enum status: { waiting: 0, confirm: 1, production: 2, preparation: 3, sent: 4 }
-  enum payment_method: { credit_card: 0, transfer: 1 }
+  enum pay_way: { credit_card: 0, transfer: 1 }
 
 
   validates :pay_way, presence: true
