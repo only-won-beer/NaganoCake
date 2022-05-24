@@ -1,37 +1,53 @@
-<div class="row">
-  <div class="col-2 offset-1 mr-3 mt-5 pt-3">
+<div class="container">
+  
+  
+  <div class="col">
     <p>ジャンル検索</p>
     <% @genres.each do |genre| %>
-      <div class="my-4">
-        <%= link_to genre.name, items_path(genre_id: genre.id) %><br>
+      <div>
+        <%= link_to genre.name, items_path(genre_id: genre.id), class: 'btn' %><br>
       </div>
     <% end %>
   </div>
-  <div class="col-8">
-    <div class="row text-center col-4 my-3 ml-3">
-      <h4 class="mini-title">
-      <% if @genre.present? %>
-        <%= @genre.name %>
-      <% else %>
-        商品一覧
-      <% end %>
-      </h4>
-      <div class="mt-2"><span>(全<%= @items.count %>件)</span></div>
-    </div>
-  <div class="row mx-auto">
-    <% @items.each do |item| %>
-      <div class="col-3 my-2 mr-1 pt-2 border table-background text-center">
-        <%= link_to item_path(item.id) do %>
-          <%= image_tag item.get_image(200, 200) %>
-          <p><%= item.name %></p>
+  
+  <div class="row">  
+    <div class="col-md-1">
+      <h4>
+        <% if @genre.present? %>
+          <%= @genre.name %>
+        <% else %>
+          商品一覧
         <% end %>
-        <p>￥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
-        <div class="favorite-btn_<%= item.id %>">
-          <%= render 'public/favorites/favorite', item: item %>
+      </h4>
+      <span>(全<%= @items.count %>件)</span>
+    </div>
+    
+    <div class="col-md-8">
+    <% @items.each do |item| %>
+      <div class="new_item">
+        <div class="tag">
+          <%= link_to item_path(item.id) do %>
+          <div class="huti1">
+          <div class="huti2">
+          <div class="huti3">
+          <div class="huti4">
+            <%= image_tag item.get_image(120, 180) %>
           </div>
+          </div>
+          </div>
+          </div>
+          <div class="bat">
+            <p><%= item.name %></p>
+          <% end %>
+          <p>￥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
+          <div class="favorite-btn_<%= item.id %>">
+            <%= render 'public/favorites/favorite', item: item %>
+          </div>
+        </div>
       </div>
     <% end %>
-  </div>
+    </div>
+  
 </div>
 
 
