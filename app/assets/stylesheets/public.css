@@ -1,7 +1,11 @@
 main {
+  background-image:url('back_katen'); 
+  background-repeat: no-repeat;
+  background-size: auto;
   color: white;
   background-color:#666666;
   padding-bottom:30px;
+  
 }
 
 .top {
