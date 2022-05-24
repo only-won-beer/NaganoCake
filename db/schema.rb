@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_125015) do
     t.integer "customer_id"
     t.integer "pay_way", null: false
     t.integer "postage", null: false
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "postcode", null: false
     t.string "address", null: false
     t.string "address_name", null: false
