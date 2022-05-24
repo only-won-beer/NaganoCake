@@ -1,6 +1,27 @@
-
-<containar>
- <%= render 'admin/genres/form', genre: @genre %>
- <%= render 'admin/genres/index', genres: @genres %>
-</containar>
-
+  <div class="row">
+    <div class="col-9 offset-3 mt-5">
+      <div class="form-group">
+        <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
+          <%= f.label :name,"ジャンル" %>
+          <%= f.text_field :name %>
+          <%= f.submit '新規追加',class:"btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-9 offset-1 mt-5">
+      <h4 class="mini-title mb-3">ジャンル一覧</h4>
+      <table class="table table-hover table-inverse">
+        <th>ジャンル名</th>
+        <th>商品数</th>
+        <th></th>
+        <% @genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %></td>
+            <td><%= genre.items.count %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    
+  </div>

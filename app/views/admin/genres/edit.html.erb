@@ -1,6 +1,6 @@
 <containar>
   <div class="row justify-content-center mt-5">
-    <div class="col-auto">
+    <div class="col-8 offset-4">
       <h4 class="mini-title">ジャンル編集</h4><br>
       <div class="form-group">
         <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch do |f| %>
@@ -9,7 +9,8 @@
           <%= f.submit '登録',class:"btn btn-success" %>
         <% end %>
       </div>
-    <div class="row justify-content-center mt-5"><%= link_to "戻る", admin_items_path %></div>
+    </div>
+    <div class=" justify-content-center mt-5"><%= link_to "戻る", admin_genres_path %></div>
     </div>
   </div>
 </containar>

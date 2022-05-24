@@ -10,7 +10,7 @@ class Admin::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     item.save
-    redirect_to admin_items_path
+    redirect_to admin_item_path(item.id)
   end
 
 
@@ -20,10 +20,7 @@ class Admin::ItemsController < ApplicationController
 
 
   def index
-    @item = Item.new
     @items = Item.all
-    @genre = Genre.new
-    @genres = Genre.all
 
   end
 
