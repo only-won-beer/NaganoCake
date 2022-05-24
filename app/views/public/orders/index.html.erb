@@ -32,7 +32,7 @@
               <% end %>
             </td>
             <td class="text-light">
-              <%= order.total_pay %>
+              ¥ <%= order.total_pay.to_s(:delimited) %>
             </td>
             <td class="text-light">
               <%= order.status_i18n %>

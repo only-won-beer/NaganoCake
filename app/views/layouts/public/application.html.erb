@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload'%>
-    
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
 
   </head>
 
@@ -18,7 +19,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <div class="row  mx-auto col-xl">
-            <div class="col-xl-2"><a class="navbar-brand" href="/"><span>LOGO</span></a></div>
+            <div class="col-xl-2"><a class="navbar-brand" href="/">LOGO</a></div>
             <% if customer_signed_in? %>
               <div class="navbar-text col-xl-4"><p><%= current_customer.last_name %>さん、こんにちは！</p></div>
               <div class="collapse navbar-collapse col-xl-6" id="navbarNavDropdown">
@@ -82,28 +83,34 @@
 
       </nav>
     </header>
+    <div class="top-image">
+    <%= image_tag 'syan', size: '200x200'%>
+    </div>
     <div id="flash-success">
       <%=render "layouts/notice" %>
     </div>
 
     <main>
-
-        <div class="row">
-            <div class="col-1">
-            </div>
-            <div class="col-9">
-              <%= yield %>
-              </div>
-            <div class="col-2">
-             
-            </div>
-          </div>
-
-
+      <div class="content"><%= yield %></div>
+      <div class="sidebar">
+      <section class="popular">
+        <h2 class="popular-heading common-heading">Popular</h2>
+          略
+      </section>
+      <section class="instagram">
+        <h2 class="instagram-heading common-heading">Instagram</h2>
+          略
+      </section>
+      <section class="categories">
+        <h2 class="categories-heading common-heading">Categories</h2>
+          略
+      </section>
+    </div>
     </main>
-      <footer class="footer"><div class="image-box"></div></footer>
-     
-  
+
+    <footer class="footer"><div class="image-box"></div></footer>
+
+
   </body>
 </html>
 
