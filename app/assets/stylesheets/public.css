@@ -1,8 +1,15 @@
 
 main {
+  background-image:url('ka1'),url('syan'),url('ka2');
+  background-repeat: no-repeat;
+  background-size: 250px 900px,250px 250px,250px 900px;
+  background-position: left,top 70px right,right;
+  background-attachment: fixed;
   color: white;
   background-color:#666666;
   padding-bottom:30px;
+
+
 }
 
 .top {
@@ -26,7 +33,7 @@ main {
 }
 
 .tag {
-  margin-right: 70px;
+  margin-right:70px;
 }
 
 .huti1 {
@@ -47,7 +54,16 @@ main {
   background-color: #fff;
 }
 
+.batman {
+  width: 100%;
+  display: flex;
+  justify-content:center;
+}
+
 .bat {
+  width: 150px;
+  height: 80px;
+  text-align:center;
   background-color: black;
   color: #fff;
   margin-top: 20px;
@@ -57,21 +73,12 @@ main {
 
 
 
-a:hover.newitems {
-  border:10px ridge #FFD700;
-}
-
 .image-box {
   height: 100px;
   width: 100px;
   color:black;
 }
 
-
-
-.top-image {
-  background-image: url('模様.gif');
-}
 
 .hashira1 {
   text-align: left;
@@ -81,15 +88,15 @@ a:hover.newitems {
   text-align: right;
 }
 
-footer {
+.footer {
   width: 100%;
   height: 200px;
   text-align: center;
-  background-color: #666666;
   background-image: url('pole.png');
-  background-size: 400px 200px;
   background-repeat: repeat-x;
+  background-size: 400px 200px;
 }
+
 
 .wrap {
 			display: grid;
@@ -108,3 +115,61 @@ footer {
 		}
 
 
+.fadeslide {
+  display: flex;
+  margin: auto;
+	position: relative;
+	width: 800px;
+	height: 500px;
+	overflow: hidden;
+	z-index: 0;
+	
+}
+
+.fadeslide div {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.fadeslide div:nth-of-type(1) {
+	animation: fadeslide 30s 0s infinite both;
+	z-index: 6;
+}
+
+.fadeslide div:nth-of-type(2) {
+	animation: fadeslide 30s 5s infinite both;
+	z-index: 5;
+}
+
+.fadeslide div:nth-of-type(3) {
+	animation: fadeslide 30s 10s infinite both;
+	z-index: 4;
+}
+
+.fadeslide div:nth-of-type(4) {
+	animation: fadeslide 30s 15s infinite both;
+	z-index: 3;
+}
+
+.fadeslide div:nth-of-type(5) {
+	animation: fadeslide 30s 20s infinite both;
+	z-index: 2;
+}
+
+.fadeslide div:nth-of-type(6) {
+	animation: fadeslide 30s 25s infinite both;
+	z-index: 1;
+}
+
+@keyframes fadeslide {
+	0% { left: 0; opacity: 0; }
+	5% { left: 0; opacity: 1; }
+	20% { left: 0; opacity: 1; }
+	25% { left: 0; opacity: 0; }
+	26% { left: 100%; opacity: 0; }
+	100% { left: 100%; opacity: 0; }
+}
+.aitekure{
+  height:50px;
+}

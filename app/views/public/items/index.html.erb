@@ -1,6 +1,6 @@
 <div class="container">
-  
-  
+
+
   <div class="col">
     <p>ジャンル検索</p>
     <% @genres.each do |genre| %>
@@ -9,8 +9,8 @@
       </div>
     <% end %>
   </div>
-  
-  <div class="row">  
+
+  <div class="row">
     <div class="col-md-1">
       <h4>
         <% if @genre.present? %>
@@ -21,7 +21,7 @@
       </h4>
       <span>(全<%= @items.count %>件)</span>
     </div>
-    
+
     <div class="col-md-8">
     <% @items.each do |item| %>
       <div class="new_item">
@@ -47,7 +47,7 @@
       </div>
     <% end %>
     </div>
-  
+
 </div>
 
 
