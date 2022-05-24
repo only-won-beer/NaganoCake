@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload'%>
-    
+
 
   </head>
 
@@ -82,6 +82,9 @@
 
       </nav>
     </header>
+    <div class="top-image">
+    <%= image_tag 'syanderia', size: '200x200'%>
+    </div>
     <div id="flash-success">
       <%=render "layouts/notice" %>
     </div>
@@ -95,15 +98,15 @@
               <%= yield %>
               </div>
             <div class="col-2">
-             
+
             </div>
           </div>
 
 
     </main>
       <footer class="footer"><div class="image-box"></div></footer>
-     
-  
+
+
   </body>
 </html>
 
