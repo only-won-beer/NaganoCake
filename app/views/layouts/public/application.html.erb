@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <div class="row  mx-auto col-xl">
-            <div class="col-xl-2"><a class="navbar-brand" href="/"><span>LOGO</span></a></div>
+            <div class="col-xl-2"><a class="navbar-brand" href="/">LOGO</a></div>
             <% if customer_signed_in? %>
               <div class="navbar-text col-xl-4"><p><%= current_customer.last_name %>さん、こんにちは！</p></div>
               <div class="collapse navbar-collapse col-xl-6" id="navbarNavDropdown">
@@ -83,26 +83,14 @@
       </nav>
     </header>
     <div class="top-image">
-    <%= image_tag 'syanderia', size: '200x200'%>
+    <%= image_tag 'syan', size: '200x200'%>
     </div>
     <div id="flash-success">
       <%=render "layouts/notice" %>
     </div>
 
     <main>
-
-        <div class="row">
-            <div class="col-1">
-            </div>
-            <div class="col-9">
-              <%= yield %>
-              </div>
-            <div class="col-2">
-
-            </div>
-          </div>
-
-
+      <%= yield %>
     </main>
       <footer class="footer"><div class="image-box"></div></footer>
 
