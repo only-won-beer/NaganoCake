@@ -21,9 +21,11 @@
           </div>
           </div>
           <% end %>
+          <div class="batman d-flex align-items-center">
           <div class="bat">
             <%= item.name %><br>
             <p>¥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
+          </div>
           </div>
         </div>
       <% end %>

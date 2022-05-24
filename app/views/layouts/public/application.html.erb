@@ -86,7 +86,7 @@
       </nav>
     </header>
     <div class="top-image">
-    <%= image_tag 'syan', size: '200x200'%>
+    <%= image_tag 'syan', size: '250x250'%>
     </div>
     <div id="flash-success">
       <%=render "layouts/notice" %>
@@ -94,9 +94,10 @@
 
     <main>
       <%= yield %>
+      <div class="footer"></div>
     </main>
 
-    <footer class="footer"><div class="image-box"></div></footer>
+    <footer class=""><div class="image-box"></div></footer>
 
 
   </body>
