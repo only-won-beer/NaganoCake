@@ -1,4 +1,10 @@
-  <div class="row">
+  <containar>
+    <div class="row justify-content-center mt-5">
+      <div class="col text-center">
+        <%= render 'layouts/errors', obj: @genre %>
+      </div>
+    </div>
+    <div class="row">
     <div class="col-9 offset-3 mt-5">
       <div class="form-group">
         <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
@@ -23,5 +29,5 @@
         <% end %>
       </table>
     </div>
-    
   </div>
+</containar>

@@ -1,5 +1,10 @@
 <containar>
   <div class="row justify-content-center mt-5">
+    <div class="row text-center">
+      <%= render 'layouts/errors', obj: @item %>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5">
     <div class="col-auto">
       <h4 class="mini-title">商品編集</h4>
         <%= form_with model: @item, url: admin_item_path(@item), method: :patch do |f| %>

@@ -2,15 +2,18 @@ class Admin::ItemsController < ApplicationController
   layout 'admin/application'
   protect_from_forgery
 
-
   def new
     @item = Item.new
   end
 
   def create
-    item = Item.new(item_params)
-    item.save
-    redirect_to admin_item_path(item.id)
+    @item = Item.new(item_params)
+    if @item.save
+      flash[:notice] = "新規商品　登録完了"
+      redirect_to admin_item_path(@item.id)
+    else
+      render "new"
+    end
   end
 
 
@@ -21,7 +24,6 @@ class Admin::ItemsController < ApplicationController
 
   def index
     @items = Item.all
-
   end
 
   def edit
@@ -30,8 +32,12 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to admin_items_path
+    if @item.update(item_params)
+      flash[:notice] = "商品編集完了"
+      redirect_to admin_items_path
+    else
+      render "edit"
+    end
   end
 
 
