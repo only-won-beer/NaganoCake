@@ -47,6 +47,7 @@ a:hover.newitems {
 main {
   color: white;
   background-color:#666666;
+  padding:50px 0 50px 0;
 }
 
 .top-image {
