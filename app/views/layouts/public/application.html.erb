@@ -7,8 +7,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload'%>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
 
   </head>
@@ -90,9 +91,24 @@
     </div>
 
     <main>
-      <%= yield %>
+      <div class="content"><%= yield %></div>
+      <div class="sidebar">
+      <section class="popular">
+        <h2 class="popular-heading common-heading">Popular</h2>
+          略
+      </section>
+      <section class="instagram">
+        <h2 class="instagram-heading common-heading">Instagram</h2>
+          略
+      </section>
+      <section class="categories">
+        <h2 class="categories-heading common-heading">Categories</h2>
+          略
+      </section>
+    </div>
     </main>
-      <footer class="footer"><div class="image-box"></div></footer>
+
+    <footer class="footer"><div class="image-box"></div></footer>
 
 
   </body>
