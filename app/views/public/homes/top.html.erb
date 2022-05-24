@@ -1,6 +1,5 @@
 <div class="container">
   <div class="text-center top">
-    <%= image_tag 'rogo', size:'500x300' %>
     <p class="text-center top_message">ようこそ、ながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
   </div>
 
@@ -22,9 +21,11 @@
           </div>
           </div>
           <% end %>
+          <div class="batman d-flex align-items-center">
           <div class="bat">
             <%= item.name %><br>
             <p>¥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
+          </div>
           </div>
         </div>
       <% end %>
