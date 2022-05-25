@@ -1,40 +1,30 @@
-<div class="container">
-  <div class="text-center">
-  <h3>ログイン</h3>
-  <h5>会員の方はこちらからログイン</h5>
+<h3 class="mini-title">ログイン</h3>
+<h5>会員の方はこちらからログイン</h5>
 
+<%= render "public/shared/error_messages", resource: resource %>
+<div class="container mt-3 ml-5">
+   <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+     <div class="form-group row">
+      <%= f.label :email, 'メールアドレス', class: "col-3" %>
+      <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "form-control col-lg-5" %>
+    </div>
 
-      <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
-      <table class="table">
-        <div class="field">
-          <tr>
-            <th><%= f.label :メールアドレス, class: "form-label" %></th>
-            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-          </tr>
-        </div>
+    <div class="form-group row">
+      <%= f.label :password,'パスワード', class: "col-3" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control col-lg-5" %>
+    </div>
 
-        <div class="field">
-          <tr>
-            <th><%= f.label :パスワード, class: "form-label" %></th>
-            <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-          </tr>
-        </div>
-
-
-        <div class="actions">
-          <tr>
-            <th></th>
-            <td><%= f.submit "ログイン", class: "btn btn-sm btn-primary" %></td>
-          </tr>
-        </div>
-      </table>
+    <div class="actions form-group row">
+      <div class="col-3"></div>
+      <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary col-lg-5 text-center',style: "color:white;" do %>
+        ログイン
       <% end %>
+    </div>
+  <% end %>
+</div>
 
 
-
-    <div class="text-end">
+    <div class="field mx-auto text-center">
       <h4>会員登録がお済みでない方</h4>
       <%= render "public/shared/links" %>
     </div>
-  </div>
-</div>

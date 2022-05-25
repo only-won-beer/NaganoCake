@@ -16,10 +16,10 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <div class="row  mx-auto col-xl">
-            <div class="col-xl-2"><a class="navbar-brand" href="/">LOGO</a></div>
+            <div class="col-xl-2"><a class="navbar-brand" href="/"><%= image_tag 'logo-syehu', size: '100x50' %></a></div>
             <% if customer_signed_in? %>
             <!--ログインしている時-->
-              <div class="navbar-text col-xl-4"><p><%= current_customer.last_name %>さん、こんにちは！</p></div>
+              <div class="navbar-text col-xl-4 mt-2"><p><%= current_customer.last_name %>さん、こんにちは！</p></div>
               <div class="collapse navbar-collapse col-xl-6" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
@@ -46,7 +46,7 @@
               </div>
             <% else %>
             <!--ログインしていない時-->
-              <!--〜さん、こんにちは！の代わりのボックス-->
+              <!--「◯◯さん、こんにちは！」の代わりのボックス-->
               <div class="col-xl-4"></div>
               <div class="collapse navbar-collapse col-xl-6" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
