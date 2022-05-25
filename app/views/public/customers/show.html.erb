@@ -1,65 +1,66 @@
 <h3 class="mini-title">MY PAGE</h3>
 
-<div class="container mt-2 ml-5">
+ <div class="row mt-3 justify-content-center">
+    <div class="col-lg-12">
+      <table class="table table-bordered table-background" style="width: 600px">
+        <thead class="thead-dark col-lg-4">
+          <tr>
+            <th>名前</th>
+            <td class="bg-light text-right col-lg-8">
+              <%= current_customer.last_name %>
+              <%= current_customer.first_name %>
+            </td>
+          </tr>
 
-    <div class="form-group row">
-      <div class="col-3">名前</div>
-      <div class="col-lg-5"><%= current_customer.full_name %></div>
-    </div>
+          <tr>
+            <th>フリガナ</th>
+            <td class="bg-light text-right">
+              <%= current_customer.last_name_kana %>
+              <%= current_customer.first_name_kana %>
+            </td>
+          </tr>
 
-</div>
+          <tr>
+            <th>レビュー表示名</th>
+            <td class="bg-light text-right">
+              <%= current_customer.nick_name %>
+            </td>
+          </tr>
 
-<div class="mx-5 px-5">
+          <tr>
+            <th>郵便番号</th>
+            <td class="bg-light text-right">
+              <%= current_customer.postcode %>
+            </td>
+          </tr>
 
-  <div class="row mx-5 px-5">
+          <tr>
+            <th>住所</th>
+            <td class="bg-light text-right">
+              <%= current_customer.address %>
+            </td>
+          </tr>
 
-      <table class="table border-bottom table-background col-md-8" style="color:white;">
-        <tr>
-          <th>氏名</th>
-          <td>
-            <%= current_customer.last_name %>
-            <%= current_customer.first_name %>
-          </td>
-        </tr>
-        <tr>
-          <th>フリガナ</th>
-          <td>
-            <%= current_customer.last_name_kana %>
-            <%= current_customer.first_name_kana %>
-          </td>
-        </tr>
-        <tr>
-          <th>レビュー表示名</th>
-          <td>
-            <%= current_customer.nick_name %>
-          </td>
-        </tr>
-        <tr>
-          <th>郵便番号</th>
-          <td>
-            <%= current_customer.postcode %>
-          </td>
-        </tr>
-        <tr>
-          <th>住所</th>
-          <td>
-            <%= current_customer.address %>
-          </td>
-        </tr>
-        <tr>
-          <th>電話番号</th>
-          <td>
-            <%= current_customer.phone_number %>
-          </td>
-        </tr>
-        <tr>
-          <th>メールアドレス</th>
-          <td>
-            <%= current_customer.email %>
-          </td>
-        </tr>
+          <tr>
+            <th>電話番号</th>
+            <td class="bg-light text-right">
+              <%= current_customer.phone_number %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>メールアドレス</th>
+            <td class="bg-light text-right">
+              <%= current_customer.email %>
+            </td>
+          </tr>
+
+        </thead>
       </table>
-      <div class="col-md-4 text-center">
+    </div>
+  </div>
+</table>
+<div class="col-md-4 text-center">
       <%= link_to "配送先一覧を見る", deliveries_path, class: "btn btn-sm btn btn-primary md-3" %><br>
       <br>
       <%= link_to "注文履歴一覧を見る", orders_path, class: 'btn btn-sm btn-info mr-3' %><br>
