@@ -1,59 +1,50 @@
   <containar>
     <div class="row justify-content-center mt-5">
-      <div class="row text-center">
-        <%= render 'layouts/errors', obj: @item %>
-      </div>
+      <h3 class="mini-title">商品登録</h3>
     </div>
-    <div class="row justify-content-center mt-5">
-      <div class="col-7 align-self-center mt-5 offset-4">
-        <h4 class="mini-title">商品登録</h4><br>
+    <%= render 'layouts/errors', obj: @item %>
 
+    <div class="text-right m-5 offset-3">
+      <%= form_with model: @item, url: admin_items_path, method: :posts do |f| %>
+        <div class="form-group row">
+          <%= f.label :image,"商品画像", class: "col-4" %>
+          <%= f.file_field :image, class: "col-4", accept: "image/*" %>
+        </div>
 
-        <%= form_with model: @item, url: admin_items_path, method: :posts do |f| %>
-          <div class="form-group">
-            <%= f.label :image,"商品画像" %>
-            <%= f.file_field :image, class: "form-inline", accept: "image/*" %>
-          </div>
+        <div class="form-group row">
+          <%= f.label :description,"商品説明", class: "col-4" %>
+          <%= f.text_area :description, size: "60x10", class: "col-4" %>
+        </div>
 
-          <div class="form-group">
-            <%= f.label :name,"商品名" %>
-            <%= f.text_field :name %>
-          </div>
+        <div class="form-group row">
+          <%= f.label :genre_id,"ジャンル", class: "col-4" %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください", class: "col-4" %>
+        </div>
 
-          <div class="form-group">
-            <%= f.label :description,"商品説明" %>
-            <%= f.text_area :description, size: "60x10" %>
-          </div>
+        <div class="form-group row">
+          <%= f.label :proce,"税抜き価格", class: "col-4" %>
+          <%= f.text_field :price, class: "col-4" %>円
+        </div>
 
-          <div class="form-group">
-            <%= f.label :genre_id,"ジャンル" %>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください" %>
+        <div class="form-group row">
+          <%= f.label :is_active,"販売ステータス", class: "col-4" %>
+          <span>
+            <%= f.radio_button :is_active, true %>
+            <%= f.label :is_active, '販売中', value: true %>
+          </span>
+          <span>
+            <%= f.radio_button :is_active, false %>
+            <%= f.label :is_active, '販売停止中', value: false %>
+          </span>
+        </div>
+        <div class="row justify-content-center mb-5">
+          <div class="col-2">
+            <%= f.submit '新規登録',class:"btn btn-btn btn-success btn-block" %>
           </div>
-
-          <div class="form-group">
-            <%= f.label :proce,"税抜き価格" %>
-            <%= f.text_field :price %>円
-          </div>
-
-          <div class="form-group">
-            <%= f.label :is_active,"販売ステータス" %>
-            <span>
-              <%= f.radio_button :is_active, true %>
-              <%= f.label :is_active, '販売中', value: true %>
-            </span>
-            <span>
-              <%= f.radio_button :is_active, false %>
-              <%= f.label :is_active, '販売停止中', value: false %>
-            </span>
-          </div>
-          <div class="row justify-content-center mb-5">
-            <div class="col-6">
-              <%= f.submit '新規登録',class:"btn btn-btn btn-success" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
+
     <div class="row justify-content-center mb-5">
       <%= link_to "戻る", admin_items_path %>
     </div>

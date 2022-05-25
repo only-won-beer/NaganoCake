@@ -1,49 +1,57 @@
 
 <containar>
-  <div class="row offset-2 mt-5 mb-3">
-    <h4>商品詳細</h4>
+  <div class="row justify-content-center mt-5 mb-3">
+    <h3>商品詳細</h3>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <%= image_tag @item.get_image(500, 500) %>
+
+
+  <div class="row">
+    <div class="col-6">
+      <div class="row justify-content-end mr-3">
+        <%= image_tag @item.get_image(400, 400) %>
+      </div>
     </div>
-    <div class="col-4">
-      <table>
+
+    <div class="col-6">
+      <table class="row">
         <tr>
-          <th>商品名</th>
-          <td><%= @item.name %></td>
+          <th class="col-5">商品名</th>
+          <td class="col-7"><%= @item.name %></td>
         </tr>
         <tr>
-          <th>商品説明</th>
-          <td><%= @item.description %></td>
+          <th class="col-5">商品説明</th>
+          <td class="col-7"><%= @item.description %></td>
         </tr>
         <tr>
-          <th>ジャンル</th>
-          <td><%= @item.genre.name %></td>
+          <th class="col-5">ジャンル</th>
+          <td class="col-7"><%= @item.genre.name %></td>
         </tr>
         <tr>
-          <th>税込み価格</th>
-          <td><%= (@item.price * 1.1).floor %>円</td>
+          <th class="col-5">価格</th>
+          <td class="col-7">¥ <%= (@item.price * 1.1).floor %></td>
         </tr>
         <tr>
-          <th>（税抜価格）</th>
-          <td>（<%= @item.price %>円）</td>
+          <th class="col-5"></th>
+          <td class="col-7">¥ <%= @item.price %>(税抜き)</td>
         </tr>
         <tr>
-          <th>販売ステータス</th>
-          <% if @item.is_active == true %>
-            <td>販売中</td>
-          <% else %>
-            <td>販売停止</td>
-          <% end %>
+          <th class="col-5">販売ステータス</th>
+          <td class="col-7">
+            <% if @item.is_active == true %>
+              <span class="text-success">販売中</span>
+            <% else %>
+              <span class="text-danger">販売停止</span>
+            <% end %>
           </td>
         </tr>
       </table>
     </div>
   </div>
 
-  <div class="row justify-content-center">
-    <%= link_to "商品編集", edit_admin_item_path(@item) %>
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-4">
+      <%= link_to "商品編集", edit_admin_item_path(@item),class: "btn btn-success btn-lg btn-block" %>
+    </div>
   </div>
 </containar>
 
