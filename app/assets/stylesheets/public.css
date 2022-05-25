@@ -1,14 +1,20 @@
+
+
 main {
-  background-image:url('ka1'),url('syan'),url('ka2');
+  background-image:url('ka1'),url('syansyan4'),url('ka2');
   background-repeat: no-repeat;
   background-size: 250px 900px,250px 250px,250px 900px;
-  background-position: left,top 70px right,right;
+  background-position: left,top right,right;
   background-attachment: fixed;
   color: white;
   background-color:#666666;
   padding-bottom:30px;
+}
 
-
+.yield {
+  width: 930px;
+  padding: 50px;
+  margin: 0 auto;
 }
 
 .top {

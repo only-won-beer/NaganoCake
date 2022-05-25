@@ -1,45 +1,46 @@
-<div class="container">
-  <div class="aitekure"></div>
-  <div class="fadeslide">
-    <div><%= image_tag "thank_you.png", size: "800x500" %></div>
-    <div><%= image_tag "ケーキ屋.jpg", size: "800x500" %></div>
-    <div><%= image_tag "ケーキ屋４.jpg", size: "800x500" %></div>
-    <div><%= image_tag "ケーキ屋５.jpg", size: "800x500" %></div>
-    <div><%= image_tag "ケーキ屋８.jpg", size: "800x500" %></div>
-    <div><%= image_tag "シェフ.jpg", size: "800x500" %></div>
-  </div>
-  <div class="text-center top">
-    <p class="text-center top_message">ようこそ、ながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
-  </div>
+<div class="text-center top">
+  <p class="text-center top_message"><strong>ようこそ、ながのCAKEへ！</strong></p>
+</div>
+<div class="aitekure"></div>
+<div class="fadeslide">
+  <div><%= image_tag "molu", size: "800x500" %></div>
+  <div><%= image_tag "プリン２", size: "800x500" %></div>
+  <div><%= image_tag "たまgo", size: "800x500" %></div>
+  <div><%= image_tag "ケーキ屋９",ize: "800x500" %></div>
+  <div><%= image_tag "ケーキ屋８.jpg", size: "800x500" %></div>
+  <div><%= image_tag "ケーキ屋", size: "800x500" %></div>
+</div>
+<div class="text-center top">
+  <p class="text-center top_message"><strong>このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</strong></p>
+</div>
 
-  <div class="">
-    <div class="text-center new">
-     <i class="fas fa-coffee"></i><h4 class="mx-2" style="display:inline "> New Item</h4><i class="fas fa-coffee"></i>
-    </div>
-    <div class="new_item">
-      <% @newitems.each do |item| %>
-        <div class="tag">
-          <%= link_to item_path(item) do %>
-          <div class="huti1">
-          <div class="huti2">
-          <div class="huti3">
-          <div class="huti4">
-            <%=image_tag item.get_image(180,180) %>
-          </div>
-          </div>
-          </div>
-          </div>
-          <% end %>
-          <div class="batman d-flex align-items-center">
-          <div class="bat">
-            <%= item.name %><br>
-            <p>¥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
-          </div>
-          </div>
+<div class="">
+  <div class="text-center new">
+   <i class="fas fa-coffee"></i><h4 class="mx-2" style="display:inline "> New Item</h4><i class="fas fa-coffee"></i>
+  </div>
+  <div class="new_item">
+    <% @newitems.each do |item| %>
+      <div class="tag">
+        <%= link_to item_path(item) do %>
+        <div class="huti1">
+        <div class="huti2">
+        <div class="huti3">
+        <div class="huti4">
+          <%=image_tag item.get_image(180,180) %>
         </div>
-      <% end %>
-    </div>
+        </div>
+        </div>
+        </div>
+        <% end %>
+        <div class="batman d-flex align-items-center">
+        <div class="bat">
+          <%= item.name %><br>
+          <p>¥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
+        </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-    <p class="text-right"><%= link_to "全ての商品を見る>", items_path, class: 'btn' %></p>
-  </div>
+</div>
+  <p class="text-right"><%= link_to "全ての商品を見る>", items_path, class: 'btn' %></p>
 </div>
