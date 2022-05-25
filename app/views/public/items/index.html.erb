@@ -1,53 +1,55 @@
 <div class="container">
 
-
-  <div class="col">
-    <p>ジャンル検索</p>
-    <% @genres.each do |genre| %>
-      <div>
-        <%= link_to genre.name, items_path(genre_id: genre.id), class: 'btn' %><br>
-      </div>
-    <% end %>
+  <div class="row mx-auto pt-3 border-bottom">
+    <div class="col-lg-2">
+      <h5>ジャンル検索</h5>
+    </div>
+  <% @genres.each do |genre| %>
+    <p class="pr-4">
+      <%= link_to genre.name, items_path(genre_id: genre.id), class:  "text-decoration-none" %><br>
+    </p>
+  <% end %>
   </div>
 
-  <div class="row">
-    <div class="col-md-1">
-      <h4>
-        <% if @genre.present? %>
-          <%= @genre.name %>
-        <% else %>
-          商品一覧
-        <% end %>
-      </h4>
-      <span>(全<%= @items.count %>件)</span>
-    </div>
+  <div class="row pt-3">
+    <h4>
+      <% if @genre.present? %>
+        <%= @genre.name %>
+      <% else %>
+        商品一覧
+      <% end %>
+    </h4>
+    <span>(全<%= @items.count %>件)</span>
 
-    <div class="col-md-8">
-    <% @items.each do |item| %>
-      <div class="new_item">
-        <div class="tag">
-          <%= link_to item_path(item.id) do %>
-          <div class="huti1">
-          <div class="huti2">
-          <div class="huti3">
-          <div class="huti4">
-            <%= image_tag item.get_image(120, 180) %>
-          </div>
-          </div>
-          </div>
-          </div>
-          <div class="bat">
-            <p><%= item.name %></p>
-          <% end %>
-          <p>￥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
-          <div class="favorite-btn_<%= item.id %>">
-            <%= render 'public/favorites/favorite', item: item %>
+    <div class="row mx-auto">
+      <div class="col">
+        <% @items.each do |item| %>
+        <div class="new_item">
+          <div class="tag">
+            <%= link_to item_path(item.id),class: "text-decoration-none" do %>
+              <div class="huti1">
+              <div class="huti2">
+              <div class="huti3">
+              <div class="huti4">
+              <%= image_tag item.get_image(120, 180) %>
+              </div>
+              </div>
+              </div>
+              </div>
+            <div class="bat">
+              <p><%= item.name %></p>
+            <% end %>
+            <p>￥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
+            <div class="favorite-btn_<%= item.id %>">
+              <%= render 'public/favorites/favorite', item: item %>
+            </div>
           </div>
         </div>
+        <% end %>
       </div>
-    <% end %>
     </div>
 
-</div>
+  </div>
 
+</div>
 
