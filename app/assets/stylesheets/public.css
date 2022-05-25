@@ -26,8 +26,7 @@ main {
 }
 
 .genre {
-  display: flex;
-  justify-content: center;
+
 }
 
 .top_message {
@@ -82,13 +81,11 @@ main {
   color: #fff;
   margin-top: 20px;
   padding: 10px;
-  text-align: center;
 }
 
 .bat-show {
-  width: 475px;
+  width: 400px;
   height: 200px;
-  text-align:center;
   background-color: black;
   color: #fff;
   margin-top: 20px;
@@ -96,6 +93,42 @@ main {
   text-align: center;
 }
 
+.bat-index {
+  width: 200px;
+  height: 120px;
+  background-color: black;
+  color: #fff;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.review {
+  background-color: #EEEEEE;
+  color: black;
+
+}
+
+.nav-link{
+  color: white;
+
+}
+
+.heart{
+  color: white;
+}
+
+.show {
+  display: flex;
+  justify-content:center;
+  margin-top: 10px;
+}
+
+.index {
+  display: flex;
+  justify-content:center;
+  margin-top: 5px;
+}
 
 .image-box {
   height: 100px;
@@ -196,4 +229,8 @@ main {
 }
 .aitekure{
   height:50px;
+}
+
+.field_with_errors {
+  display: contents;
 }
