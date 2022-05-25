@@ -4,13 +4,12 @@
       <h3 class="mini-title">ショッピングカート</h3>
     </div>
   </div>
-  
+
   <div class"row">
     <table class="table table-bordered table-background text-center">
       <thead class="thead-dark">
         <tr>
-          <th class="col-lg-3">商品名</th>
-          <th class="col-lg-1"></th>
+          <th class="col-lg-4">商品名</th>
           <th class="col-lg-2">単価税込</th>
           <th class="col-lg-2">数量</th>
           <th class="col-lg-2">小計</th>
@@ -20,8 +19,7 @@
       <% @cart_items.each do |cart_item| %>
       <tbody class="bg-light">
         <tr>
-          <td><%= cart_item.item.name %></td>
-          <td><%= image_tag cart_item.item.get_image(100,100) %></td>
+          <td class="text-left"><%= image_tag cart_item.item.get_image(100,100) %>　<%= cart_item.item.name %></td>
           <td class="text-right">¥ <%= (cart_item.item.price* 1.1).floor.to_s(:delimited) %></td>
           <td>
             <%= form_with model:cart_item, method: :patch, local:true do |f| %>
@@ -42,7 +40,7 @@
       <% end %>
     </table>
   </div>
-  
+
   <div class="row mt-3 justify-content-end">
     <div class="col-lg-6">
       <table class="table table-bordered table-background">
@@ -55,7 +53,7 @@
       </table>
     </div>
   </div>
-  
+
   <div class="row mt-5 mb-5 justify-content-center ">
     <div class="col-3">
       <%= link_to new_order_path(current_customer), class:"text-light" do %>
