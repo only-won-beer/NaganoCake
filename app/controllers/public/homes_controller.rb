@@ -1,7 +1,8 @@
 class Public::HomesController < ApplicationController
   layout 'public/application'
   def top
-    @newitems = Item.order(created_at: :desc).limit(4)
+    # 販売停止は表示しないようにする
+    @newitems = Item.order(created_at: :desc).limit(3)
   end
 
   def about
