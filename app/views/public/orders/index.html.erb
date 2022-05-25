@@ -14,30 +14,30 @@
           <th>注文詳細</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="bg-light">
         <% @orders.each do |order| %>
           <tr>
-            <td class="text-light">
+            <td>
               <%= order.created_at.strftime('%Y/%m/%d') %><br>
               <%= order.created_at.strftime('%H:%M') %>
             </td>
-            <td class="text-light">
+            <td>
               <%= order.postcode %><br>
               <%= order.address %><br>
               <%= order.address_name %>
             </td>
-            <td class="text-light">
+            <td>
               <% order.items.each do |item| %>
                 <%= item.name %><br>
               <% end %>
             </td>
-            <td class="text-light">
+            <td style="text-align:right;">
               ¥ <%= order.total_pay.to_s(:delimited) %>
             </td>
-            <td class="text-light">
+            <td>
               <%= order.status_i18n %>
             </td>
-            <td><%= link_to "表示する", order_path(order), class:"text-white" %></td>
+            <td><%= link_to "表示する", order_path(order), class:"text-dark" %></td>
           </tr>
         <% end %>
       </tbody>
