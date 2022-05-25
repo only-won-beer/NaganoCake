@@ -1,11 +1,11 @@
-<div class="container">
-  <div class="text-center">
-      <h2>新規会員登録</h2>
+<div class="row mx-5 mt-5 mb-3">
+  <h3 class="mini-title">新規会員登録</h3>
+</div>
 
 
     <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
-      <table class="table">
+      <table class="table mx-5 table-bordered table-background">
 
       <div class="field">
         <tr>

@@ -8,43 +8,33 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!--<= stylesheet_link_tag 'cart_items', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-    <!--<= stylesheet_link_tag 'orders', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-    <!--<= stylesheet_link_tag 'items', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-    <!--<= stylesheet_link_tag 'deliveries', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-    <!--<= stylesheet_link_tag 'reviews', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-    <!--<= stylesheet_link_tag 'coustomers', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
-
   </head>
 
   <body>
-
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <div class="row  mx-auto col-xl">
             <div class="col-xl-2"><a class="navbar-brand" href="/">LOGO</a></div>
             <% if customer_signed_in? %>
+            <!--ログインしている時-->
               <div class="navbar-text col-xl-4"><p><%= current_customer.last_name %>さん、こんにちは！</p></div>
               <div class="collapse navbar-collapse col-xl-6" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
                     <%= link_to customers_path,class: 'nav-link' do %>
-                      <i class="fas fa-user"></i> MY PAGE
+                      <i class="fas fa-snowman"></i> MY PAGE
                     <% end %>
                   </li>
                   <li class="nav-item active">
                     <%=  link_to items_path,class: 'nav-link' do %>
-                    <i class="fas fa-birthday-cake"></i> PRODUCTS
+                      <i class="fas fa-birthday-cake"></i> PRODUCTS
                     <% end %>
                   </li>
                   <li class="nav-item active">
                     <%=  link_to cart_items_path ,class: 'nav-link' do %>
-                    <i class="fas fa-cart-arrow-down"></i> CART
+                      <i class="fas fa-shopping-cart"></i> CART
                     <% end %>
                   </li>
                   <li class="nav-item active">
@@ -53,20 +43,21 @@
                     <% end %>
                   </li>
                 </ul>
-                </div>
-
-                <% else %>
-                <div class="col-xl-4"></div>
-                <div class="collapse navbar-collapse col-xl-6" id="navbarNavDropdown">
+              </div>
+            <% else %>
+            <!--ログインしていない時-->
+              <!--〜さん、こんにちは！の代わりのボックス-->
+              <div class="col-xl-4"></div>
+              <div class="collapse navbar-collapse col-xl-6" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
                     <%= link_to about_path,class: 'nav-link' do %>
-                      <i class="fas fa-beer"></i> ABOUT
+                      <i class="fas fa-store"></i> ABOUT
                     <% end %>
                   </li>
                   <li class="nav-item active">
                     <%= link_to items_path,class: 'nav-link' do %>
-                      <i class="fas fa-heart"></i> PRODUCTS
+                      <i class="fas fa-birthday-cake"></i> PRODUCTS
                     <% end %>
                   </li>
                   <li class="nav-item active">
@@ -84,11 +75,11 @@
             <% end %>
           </div>
         </div>
-
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+        <!--ハンバーガーメニュー-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--ハンバーガーメニュー-->
       </nav>
     </header>
     <div id="flash-success">
@@ -96,15 +87,18 @@
     </div>
 
     <main>
+
       <div class="yield">
         <%= yield %>
       </div>
+
+      <!--下のポール部分-->
       <div class="footer"></div>
+      <!--下のポール部分-->
+
     </main>
 
-    <footer class="text-center">©︎only-won-beer</footer>
-
-
+    <footer class="text-center" style="background-color:#666666;">©︎only-won-beer</footer>
   </body>
 </html>
 
