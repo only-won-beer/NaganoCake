@@ -1,59 +1,80 @@
-<div class="row">
+<container>
+  <div class="row">
 
-  <div class="col-lg-3 text-center">
-    <p class="border"><strong>ジャンル検索</strong></p>
-    <% @genres.each do |genre| %>
-      <%= link_to items_path(genre_id: genre.id), class: 'nav-link' do %><br>
-        <i class="fas fa-birthday-cake"></i><%= genre.name %>
+    <div class="col-lg-3 text-center">
+      <p class="border"><strong>ジャンル検索</strong></p>
+      <% @genres.each do |genre| %>
+        <%= link_to items_path(genre_id: genre.id), class: 'nav-link' do %><br>
+          <i class="fas fa-birthday-cake"></i><%= genre.name %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-
-  <div class="col-lg-6">
-    <div class="huti1">
-    <div class="huti2">
-    <div class="huti3">
-    <div class="huti4">
-      <%= image_tag @item.get_image(390,330) %>
-    </div>
-    </div>
-    </div>
     </div>
 
-    <div class="show">
-      <div class="bat-show">
-        <div class="my-4 ml-3">
-          <h3><%= @item.name %></h3>
-          <%= @item.description %>
-        </div>
-        <div class="ml-3">
-          <p><span class="font-weight-bold">￥<%= (@item.price * 1.1).floor %>(税込み)</span></p>
-          <div class="favorite-btn_<%= @item.id %>"><%= render 'public/favorites/favorite', item: @item %></div>
-        </div>
+    <div class="col-lg-6">
+      <div class="huti1">
+      <div class="huti2">
+      <div class="huti3">
+      <div class="huti4">
+        <%= image_tag @item.get_image(390,330) %>
       </div>
-    </div>
+      </div>
+      </div>
+      </div>
 
-    <%= form_with model:@cart_item, url: '/cart_items/', method: :post, local:true do |f| %>
       <div class="show">
-        <div class="form-group">
-          <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.select :quantity, *[1..10] %>
+        <div class="bat-show">
+          <div class="my-4 ml-3">
+            <h3><%= @item.name %></h3>
+            <%= @item.description %>
+          </div>
+          <div class="ml-3">
+            <p><span class="font-weight-bold">￥<%= (@item.price * 1.1).floor %>(税込み)</span></p>
+            <div class="favorite-btn_<%= @item.id %>"><%= render 'public/favorites/favorite', item: @item %></div>
+          </div>
         </div>
-        <div class="form-group offset-1">
-          <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+      </div>
+
+      <%= form_with model:@cart_item, url: '/cart_items/', method: :post, local:true do |f| %>
+        <div class="show">
+          <div class="form-group">
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.select :quantity, *[1..10] %>
+          </div>
+          <div class="form-group offset-1">
+            <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+          </div>
         </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h3 class="col-lg-4 mr-3 mb-5 mini-title">
+      <% if customer_signed_in? %>
+        レビュー投稿
+      <% end %>
+    </h3>
+      <% if customer_signed_in? %>
+        <h3 class="col-lg-7 mb-5 mini-title">お客様の声</h3>
+      <% else %>
+        <h3 class="col-lg-8 offset-2 mini-title">お客様の声</h3>
+      <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 mr-3">
+      <% if customer_signed_in? %>
+        <%= render 'public/reviews/form', item: @item,review: @review %>
+      <% end %>
+    </div>
+    <% if customer_signed_in? %>
+      <div class="review_index_<%= @item.id %> col-lg-7">
+        <%= render 'public/reviews/reviews_index', item: @item %>
+      </div>
+    <% else %>
+      <div class="review_index_<%= @item.id %> col-lg-8 offset-2">
+        <%= render 'public/reviews/reviews_index', item: @item %>
       </div>
     <% end %>
   </div>
-</div>
-
-<div class="row mt-4">
-  <div class="col-3">
-    <%= render 'public/reviews/form', item: @item,review: @review %>
-  </div>
-  <div class="col-9 ml-6 text-senter">
-    <div class="review_index_<%= @item.id %>">
-      <%= render 'public/reviews/reviews_index', item: @item %>
-    </div>
-  </div>
-</div>
+<container>
