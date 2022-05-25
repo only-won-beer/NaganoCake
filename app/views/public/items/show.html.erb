@@ -1,6 +1,6 @@
 <div class="row">
   
-  <div class="col-2 offset-2 mt-3 pt-3">
+  <div class="col-2 mt-3 pt-3">
     <p>ジャンル検索</p>
     <% @genres.each do |genre| %>
       <div class="my-4">
@@ -9,12 +9,12 @@
     <% end %>
   </div>
   
-  <div class="col-4 ml-5 mt-5">
+  <div class="col-8 ml-9 mt-3">
     <div class="huti1">
     <div class="huti2">
     <div class="huti3">
     <div class="huti4">
-      <%= image_tag @item.get_image(415, 340) %>
+      <%= image_tag @item.get_image(480, 370) %>
     </div>
     </div>
     </div>
@@ -53,9 +53,13 @@
   </div>
 </div>
 
-<div class="row offset-2">
-    <div class="col-2"><%= render 'public/reviews/form', item: @item,review: @review %></div>
-  <div class="col-8">
-    <div class="review_index_<%= @item.id %>"><%= render 'public/reviews/reviews_index', item: @item %></div>
+<div class="row mt-4">
+  <div class="col-3">
+    <%= render 'public/reviews/form', item: @item,review: @review %>
+  </div>
+  <div class="col-9 ml-6 text-senter">
+    <div class="review_index_<%= @item.id %>">
+      <%= render 'public/reviews/reviews_index', item: @item %>
+    </div>
   </div>
 </div>
