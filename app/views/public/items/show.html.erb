@@ -4,7 +4,7 @@
     <p>ジャンル検索</p>
     <% @genres.each do |genre| %>
       <div class="my-4">
-        <%= link_to genre.name, items_path(genre_id: genre.id), class: 'btn' %><br>
+        <%= link_to genre.name, items_path(genre_id: genre.id), class: "text-decoration-none" %><br>
       </div>
     <% end %>
   </div>
@@ -14,14 +14,13 @@
     <div class="huti2">
     <div class="huti3">
     <div class="huti4">
-      <%= image_tag @item.get_image(290, 280) %>
+      <%= image_tag @item.get_image(415, 340) %>
     </div>
     </div>
     </div>
     </div>
     
-    <div class="bat">
-      
+    <div class="bat-show">
       <div class="my-4 ml-3">
         <h3><%= @item.name %></h3>
         <%= @item.description %>
