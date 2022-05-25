@@ -54,12 +54,12 @@
   </div>
 
   <div class="row mt-5 mb-5 justify-content-center ">
-    <div class="col-3">
+    <div class="col-lg-3">
       <%= link_to new_order_path(current_customer), class:"text-light" do %>
         <i class="fas fa-shopping-cart"></i> 情報入力に進む
       <% end %>
     </div>
-    <div class="col-3">
+    <div class="col-lg-3">
       <%= link_to cart_item_cart_items_destroy_all_path(current_customer.cart_items), class:"text-light", method: :delete do %>
         <i class="fas fa-trash-alt"></i> カートを空にする
       <% end %>

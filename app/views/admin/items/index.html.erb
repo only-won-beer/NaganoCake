@@ -1,44 +1,51 @@
 <containar>
-  <div class="row">
-    <div class="col-8 offset-1 mt-5 mb-3">
-      <h4 class="mini-title">商品一覧</h4>
+  <div class="row  offset-1 mt-5 mb-3">
+    <div class="col-lg-6">
+      <h3 class="mini-title">商品一覧</h3>
     </div>
-    <div class="col-8 offset-1">
-      <table class="table table-hover table-inverse">
-        <th>商品ID</th>
-        <th>商品画像</th>
-        <th>商品名</th>
-        <th>税抜価格</th>
-        <th>ジャンル</th>
-        <th>ステータス</th>
-        <th></th>
-
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= item.id %></td>
-            <td><%= image_tag item.get_image(200,200) %></td>
-            <td><%= link_to admin_item_path(item.id) do %>
-                  <%= item.name %>
-                <% end %></td>
-            <td><%= item.price %></td>
-            <td>
-              <%= item.genre.name %>
-            </td>
-            <td>
-              <% if item.is_active == true %>
-                <span class="text-success">販売中</span>
-              <% else %>
-                <span class="text-danger">販売停止</spn>
-              <% end %>
-            </td>
-            <td><%= link_to "編集する", edit_admin_item_path(item) %></td>
-            </tr>
-        <% end %>
-      </table>
+    <div class="col-lg-4">
+      <%= link_to new_admin_item_path, class: "btn btn-outline-primary btn-lg btn-block" do  %>
+        <i class="fas fa-birthday-cake"></i>　新規商品登録　<i class="fas fa-birthday-cake"></i>
+      <% end %>
     </div>
   </div>
 
-  <div class="row justify-content-center">
-    <%= link_to "商品登録", new_admin_item_path,class:"btn btn-btn btn-success btn-lg" %>
+  <div class="row text-center">
+    <div class="col-lg-10 offset-1">
+      <table class="table table-inverse">
+        <thead class="thead-dark">
+          <th>商品ID</th>
+          <th>商品画像</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.id %></td>
+              <td><%= image_tag item.get_image(150,150) %></td>
+              <td><%= link_to admin_item_path(item.id) do %>
+                    <%= item.name %>
+                  <% end %></td>
+              <td>¥ <%= item.price.to_s(:delimited) %></td>
+              <td>
+                <%= item.genre.name %>
+              </td>
+              <td>
+                <% if item.is_active == true %>
+                  <span class="text-success">販売中</span>
+                <% else %>
+                  <span class="text-danger">販売停止</spn>
+                <% end %>
+              </td>
+              <td><%= link_to "編集する", edit_admin_item_path(item), class: "btn btn-success"  %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </containar>
