@@ -1,17 +1,17 @@
 <div class="container">
 
-  <div class="row pt-3 border-bottom">
-    <div class="col-lg-2 ml-4">
-      <strong>ジャンル検索</strong>
+  <div class="row border-bottom">
+    <div class="col-lg-2 text-center">
+      <p class="border"><strong>ジャンル検索</strong></p>
     </div>
     <% @genres.each do |genre| %>
-      <p class="pr-4">
-        <%= link_to genre.name, items_path(genre_id: genre.id), class:  "text-decoration-none" %><br>
-      </p>
+        <%= link_to items_path(genre_id: genre.id), class: 'nav-link' do %>
+          <i class="fas fa-birthday-cake"></i><%= genre.name %><br>
+        <% end %>
     <% end %>
   </div>
 
-  <div class="row pt-3 offset-1">
+  <div class="row mt-4 mb-4">
     <h3>
       <% if @genre.present? %>
         <%= @genre.name %>
@@ -24,7 +24,7 @@
 
   <div class="row">
     <% @items.each do |item| %>
-      <div class="col mt-1 ml-6">
+      <div class="col-lg-4">
         <div class="new_item">
           <div class="tag">
             <%= link_to item_path(item.id),class: "text-decoration-none" do %>
@@ -38,11 +38,13 @@
               </div>
               </div>
             <% end %>
-            <div class="bat-index text-center">
-              <p><%= item.name %></p>
-              <p>￥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
-              <div class="favorite-btn_<%= item.id %>">
-                <%= render 'public/favorites/favorite', item: item %>
+            <div class="index">
+              <div class="bat-index ">
+                <p><%= item.name %></p>
+                <p>￥<%= (item.price * 1.1).floor.to_s(:delimited) %>(税込み)</p>
+                <div class="favorite-btn_<%= item.id %>">
+                  <%= render 'public/favorites/favorite', item: item %>
+                </div>
               </div>
             </div>
           </div>
@@ -50,6 +52,8 @@
       </div>
     <% end %>
   </div>
-
+  <div class="kaminari">
+     <%= paginate @items %>
+  </div>
 </div>
 

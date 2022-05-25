@@ -1,55 +1,49 @@
 <div class="row">
-  
-  <div class="col-2 mt-3 pt-3">
-    <p>ジャンル検索</p>
+
+  <div class="col-lg-3 text-center">
+    <p class="border"><strong>ジャンル検索</strong></p>
     <% @genres.each do |genre| %>
-      <div class="my-4">
-        <%= link_to genre.name, items_path(genre_id: genre.id), class: "text-decoration-none" %><br>
-      </div>
+      <%= link_to items_path(genre_id: genre.id), class: 'nav-link' do %><br>
+        <i class="fas fa-birthday-cake"></i><%= genre.name %>
+      <% end %>
     <% end %>
   </div>
-  
-  <div class="col-8 ml-9 mt-3">
+
+  <div class="col-lg-6">
     <div class="huti1">
     <div class="huti2">
     <div class="huti3">
     <div class="huti4">
-      <%= image_tag @item.get_image(480, 370) %>
+      <%= image_tag @item.get_image(390,330) %>
     </div>
     </div>
     </div>
     </div>
-    
-    <div class="bat-show">
-      <div class="my-4 ml-3">
-        <h3><%= @item.name %></h3>
-        <%= @item.description %>
+
+    <div class="show">
+      <div class="bat-show">
+        <div class="my-4 ml-3">
+          <h3><%= @item.name %></h3>
+          <%= @item.description %>
+        </div>
+        <div class="ml-3">
+          <p><span class="font-weight-bold">￥<%= (@item.price * 1.1).floor %>(税込み)</span></p>
+          <div class="favorite-btn_<%= @item.id %>"><%= render 'public/favorites/favorite', item: @item %></div>
+        </div>
       </div>
-      
-      <div class="ml-3">
-        <p><span class="font-weight-bold">￥<%= (@item.price * 1.1).floor %>(税込み)</span></p>
-        <div class="favorite-btn_<%= @item.id %>"><%= render 'public/favorites/favorite', item: @item %></div>
-      </div>
-      
     </div>
 
     <%= form_with model:@cart_item, url: '/cart_items/', method: :post, local:true do |f| %>
-      <div class="d-flex align-items-end mt-3">
+      <div class="show">
         <div class="form-group">
           <%= f.hidden_field :item_id, :value => @item.id %>
           <%= f.select :quantity, *[1..10] %>
         </div>
-
         <div class="form-group offset-1">
           <%= f.submit "カートに入れる", class: 'btn btn-success' %>
         </div>
-        
       </div>
     <% end %>
-    
-      
-   
-    
   </div>
 </div>
 
