@@ -234,3 +234,10 @@ main {
 .field_with_errors {
   display: contents;
 }
+
+.kaminari {
+  display: flex;
+  justify-content:center;
+  margin-top: 10px;
+}
+
