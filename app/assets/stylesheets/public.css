@@ -1,5 +1,4 @@
-
-
+/*全体に適用する部分のCSS始まり*/
 main {
   background-image:url('ka1'),url('syansyan4'),url('ka2');
   background-repeat: no-repeat;
@@ -17,132 +16,8 @@ main {
   margin: 0 auto;
 }
 
-.top {
-  display: flex;
-}
-
 .text-decoration-none {
   color: #FFFFFF;
-}
-
-.genre {
-
-}
-
-.top_message {
-  padding: 20px;
-}
-
-.new {
-  padding:20px;
-}
-
-.top-image img {
-  float: right;
-}
-
-.new_item {
-  display: flex;
-}
-
-.tag {
-  margin-right:70px;
-}
-
-.huti1 {
-  border: 3px solid black;
-}
-
-.huti2 {
-  border: 3px solid #C1AB05;
-}
-
-.huti3 {
-  border: 9px solid black;
-}
-
-.huti4 {
-  border: 3px solid #C1AB05;
-  padding: 12px;
-  background-color: #fff;
-}
-
-.batman {
-  width: 100%;
-  display: flex;
-  justify-content:center;
-}
-
-.bat {
-  width: 150px;
-  height: 80px;
-  text-align:center;
-  background-color: black;
-  color: #fff;
-  margin-top: 20px;
-  padding: 10px;
-}
-
-.bat-show {
-  width: 400px;
-  height: 200px;
-  background-color: black;
-  color: #fff;
-  margin-top: 20px;
-  padding: 10px;
-  text-align: center;
-}
-
-.bat-index {
-  width: 200px;
-  height: 120px;
-  background-color: black;
-  color: #fff;
-  margin: 10px;
-  padding: 10px;
-  text-align: center;
-}
-
-.review {
-  background-color: #EEEEEE;
-  color: black;
-
-}
-
-.nav-link{
-  color: white;
-
-}
-
-.heart{
-  color: white;
-}
-
-.show {
-  display: flex;
-  justify-content:center;
-  margin-top: 10px;
-}
-
-.index {
-  display: flex;
-  justify-content:center;
-  margin-top: 5px;
-}
-
-.image-box {
-  height: 100px;
-  width: 100px;
-  color:black;
-}
-
-
-.hashira1 {
-  text-align: left;
-}
-
-.hashira2 {
-  text-align: right;
 }
 
 .footer {
@@ -154,24 +29,24 @@ main {
   background-size: 400px 200px;
 }
 
-
-.wrap {
-			display: grid;
-			grid-template-columns: 3fr 1fr;
-		}
-		.main_content {
-			background: #e0efff;
-		}
-		.side {
-			background: #e0ffe0;
-		}
-		.side_content {
-			position: sticky;
-			top: 50px;
-			background: #ffe0ff;
-		}
+/*全体に適用する部分のCSS終わり*/
 
 
+/*トップページのCSS始まり*/
+
+.top_message {
+  padding: 20px;
+}
+
+.new_item {
+  display: flex;
+}
+
+.tag {
+  margin-right:70px;
+}
+
+/*トップページのスライドショー始まり*/
 .fadeslide {
   display: flex;
   margin: auto;
@@ -227,8 +102,124 @@ main {
 	26% { left: 100%; opacity: 0; }
 	100% { left: 100%; opacity: 0; }
 }
-.aitekure{
-  height:50px;
+
+/*トップページのスライドショー終わり*/
+
+/*額縁のCSS始まり*/
+.huti1 {
+  border: 3px solid black;
+}
+
+.huti2 {
+  border: 3px solid #C1AB05;
+}
+
+.huti3 {
+  border: 9px solid black;
+}
+
+.huti4 {
+  border: 3px solid #C1AB05;
+  padding: 12px;
+  background-color: #fff;
+}
+/*額縁のCSS終わり*/
+
+/*額縁の下の黒い部分始まり*/
+.batman {
+  width: 100%;
+  display: flex;
+  justify-content:center;
+}
+
+.bat {
+  width: 150px;
+  height: 80px;
+  text-align:center;
+  background-color: black;
+  color: #fff;
+  margin-top: 20px;
+  padding: 10px;
+}
+/*額縁の下の黒い部分終わり*/
+
+/*トップページのCSS終わり*/
+
+/*AboutページのCSS始まり*/
+
+.about {
+  margin:30px auto;
+  width: 680px;
+  height:450px;
+  background-image: url('syehu');
+  border-radius: 20px;
+}
+
+.message-about {
+  color: black;
+  width: 620px;
+  padding: 90px 0 10px 240px;
+  float: right;
+}
+
+.message-about span {
+  font-size:1.2rem;
+}
+/*AboutページのCSS終わり*/
+
+
+
+.bat-show {
+  width: 400px;
+  height: 200px;
+  background-color: black;
+  color: #fff;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.bat-index {
+  width: 200px;
+  height: 120px;
+  background-color: black;
+  color: #fff;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.review {
+  background-color: #EEEEEE;
+  color: black;
+
+}
+
+.nav-link{
+  color: white;
+
+}
+
+.heart{
+  color: white;
+}
+
+.show {
+  display: flex;
+  justify-content:center;
+  margin-top: 10px;
+}
+
+.index {
+  display: flex;
+  justify-content:center;
+  margin-top: 5px;
+}
+
+.image-box {
+  height: 100px;
+  width: 100px;
+  color:black;
 }
 
 .field_with_errors {
