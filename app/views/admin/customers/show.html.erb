@@ -1,7 +1,7 @@
-<div class="mb-8">
-  <h3 class="ml-5 mini-title"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
+<div class="container">
+  <h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
   <div class="row mx-5">
-    <table class="table mx-5 table-bordered col-5">
+    <table class="table mx-5 table-bordered" style="width:90%; margin:auto;">
       <tr>
         <td>会員ID</td>
         <td><%= @customer.id %></td>
