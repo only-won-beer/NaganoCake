@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-lg-3 text-center">
-      <p class="border"><strong>ジャンル検索</strong></p>
+    <div class="col-lg-3 left">
+      <p class="border text-center p-3"><strong>ジャンル検索</strong></p>
       <% @genres.each do |genre| %>
         <%= link_to items_path(genre_id: genre.id), class: 'nav-link' do %><br>
-          <i class="fas fa-birthday-cake"></i><%= genre.name %>
+          <i class="fas fa-birthday-cake"></i>　<%= genre.name %>
         <% end %>
       <% end %>
     </div>
@@ -15,7 +15,7 @@
       <div class="huti2">
       <div class="huti3">
       <div class="huti4">
-        <%= image_tag @item.get_image(470,330) %>
+        <%= image_tag @item.get_image(450,330) %>
       </div>
       </div>
       </div>
