@@ -16,7 +16,9 @@ main {
   margin: 0 auto;
 }
 
-h
+.navbar {
+  padding: 0;
+}
 
 .text-decoration-none {
   color: #FFFFFF;
@@ -173,17 +175,17 @@ h
 
 .bat-show {
   width: 400px;
-  height: 200px;
+  height: auto;
   background-color: black;
   color: #fff;
   margin-top: 20px;
-  padding: 10px;
+  padding: 10px 10px 15px;
   text-align: center;
 }
 
 .bat-index {
   width: 200px;
-  height: 120px;
+  height: auto;
   background-color: black;
   color: #fff;
   margin: 10px;
