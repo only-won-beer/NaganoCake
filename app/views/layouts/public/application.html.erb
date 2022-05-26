@@ -14,13 +14,13 @@
   <body>
     <header class="sticky-top bg-white">
       <nav class="navbar navbar-expand-lg bg-white">
-          <div class="row">
-            <div class="col-xl-2 "><a class="navbar-brand" href="/"><%= image_tag 'fukidashi', size: '100x80' %><%= image_tag 'logo-syehu', size: '100x65' %></a></div>
+          <div class="container">
+            <a class="navbar-brand" href="/"><%= image_tag 'fukidashi', size: '100x80' %><%= image_tag 'logo-syehu', size: '100x65' %></a>
             <% if customer_signed_in? %>
             <!--ログインしている時-->
-              <div class="navbar-text col-xl-3 mt-2"><p><%= current_customer.last_name %>さん、こんにちは！</p></div>
+              <div class="mx-auto"><p><%= current_customer.last_name %>さん、こんにちは！</p></div>
               <div class="collapse navbar-collapse col-xl-6 text-dark" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
                     <%= link_to customers_path,class: 'nav-link text-dark' do %>
                       <i class="fas fa-snowman"></i> MY PAGE
@@ -46,7 +46,7 @@
             <% else %>
             <!--ログインしていない時-->
               <!--「◯◯さん、こんにちは！」の代わりのボックス-->
-              <div class="col-xl-4"></div>
+              <div class="mx-auto"></div>
               <div class="collapse navbar-collapse col-xl-6" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
