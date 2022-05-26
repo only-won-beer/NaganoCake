@@ -1,7 +1,7 @@
 class Admin::CustomersController < ApplicationController
   layout 'admin/application'
   def index
-    @customers = Customer.all.page(params[:page]).per(10)
+    @customers = Customer.all.page(params[:page]).per(6)
   end
 
   def show
@@ -21,8 +21,8 @@ class Admin::CustomersController < ApplicationController
       render "edit"
     end
   end
-  
-  
+
+
   def order_index
     @customer = Customer.find(params[:customer_id])
     if params[:status] == "ichiran"
@@ -35,7 +35,7 @@ class Admin::CustomersController < ApplicationController
     end
   end
   private
-  
+
   def customer_params
     params.require(:customer).permit(:is_deleted)
   end
