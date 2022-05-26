@@ -7,6 +7,11 @@
     <div class="text-right m-5 offset-3">
       <%= form_with model: @item, url: admin_items_path, method: :posts do |f| %>
         <div class="form-group row">
+          <%= f.label :name,"商品名", class: "col-lg-4" %>
+          <%= f.text_field :name, class: "col-lg-4" %>
+        </div>
+
+        <div class="form-group row">
           <%= f.label :image,"商品画像", class: "col-lg-4" %>
           <%= f.file_field :image, class: "col-lg-4", accept: "image/*" %>
         </div>
