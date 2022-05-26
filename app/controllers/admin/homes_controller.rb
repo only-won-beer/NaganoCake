@@ -2,7 +2,7 @@ class Admin::HomesController < ApplicationController
   layout 'admin/application'
   def top
     if params[:status] == "ichiran"
-      @orders = Order.all.page(params[:page]).per(10)
+      @orders = Order.all.page(params[:page]).per(6)
     elsif params[:status]
       @order_statuses = Order.where(status: params[:status])
       @orders = @order_statuses.page(params[:page]).per(10)
