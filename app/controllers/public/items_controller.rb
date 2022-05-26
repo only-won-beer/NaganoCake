@@ -12,7 +12,7 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.all
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
-      @items = @genre.items
+      @items = @genre.items.page(params[:page])
     else
       @items = Item.page(params[:page])
     end
