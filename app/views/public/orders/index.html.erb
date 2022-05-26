@@ -1,32 +1,31 @@
 <div class="container">
-  <h3 class="mini-title">注文履歴一覧</h3>
+  <h3>注文履歴一覧</h3>
 </div>
 <div class="container">
   <div class="row">
-    <table class="table table-bordered table-background">
+    <table class="table table-bordered table-background" style="width:90%; margin:auto;">
       <thead class="thead-dark">
         <tr>
-          <th>注文日</th>
-          <th>配送先</th>
-          <th>注文商品</th>
-          <th>支払い金額</th>
-          <th>ステータス</th>
-          <th>注文詳細</th>
+          <th class="text-center">注文日</th>
+          <th class="text-center">配送先</th>
+          <th class="text-center">注文商品</th>
+          <th class="text-center">支払い金額</th>
+          <th class="text-center">ステータス</th>
         </tr>
       </thead>
       <tbody class="bg-light">
         <% @orders.each do |order| %>
-          <tr>
-            <td>
+          <tr onclick='window.location="<%= '/orders/' + order.id.to_s %>"' role="link">
+            <td class="text-center">
               <%= order.created_at.strftime('%Y/%m/%d') %><br>
               <%= order.created_at.strftime('%H:%M') %>
             </td>
-            <td>
+            <td class="text-center">
               <%= order.postcode %><br>
               <%= order.address %><br>
               <%= order.address_name %>
             </td>
-            <td>
+            <td class="text-center">
               <% order.items.each do |item| %>
                 <%= item.name %><br>
               <% end %>
@@ -34,10 +33,9 @@
             <td style="text-align:right;">
               ¥ <%= order.total_pay.to_s(:delimited) %>
             </td>
-            <td>
+            <td class="text-center">
               <%= order.status_i18n %>
             </td>
-            <td><%= link_to "表示する", order_path(order), class:"text-dark" %></td>
           </tr>
         <% end %>
       </tbody>
