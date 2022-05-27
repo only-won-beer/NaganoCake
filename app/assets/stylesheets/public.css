@@ -55,8 +55,8 @@ main {
   display: flex;
   margin: auto;
 	position: relative;
-	width: 800px;
-	height: 500px;
+	width: 600px;
+	height: 400px;
 	overflow: hidden;
 	z-index: 0;
 
