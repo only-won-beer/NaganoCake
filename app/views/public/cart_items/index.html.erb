@@ -1,7 +1,12 @@
-<container>
+<div class="container">
   <div class="row mb-3">
-    <div class="col-lg-12">
+    <div class="col-lg-8">
       <h3 class="mini-title">ショッピングカート</h3>
+    </div>
+    <div class="col-lg-4 text-right">
+      <%= link_to cart_item_cart_items_destroy_all_path(current_customer.cart_items), class:"btn btn-danger btn-lg", method: :delete do %>
+        <i class="fas fa-trash-alt"></i> カートを空にする
+      <% end %>
     </div>
   </div>
 
@@ -54,15 +59,15 @@
   </div>
 
   <div class="row mt-5 mb-5 justify-content-center ">
-    <div class="col-lg-3">
-      <%= link_to new_order_path(current_customer), class:"text-light" do %>
-        <i class="fas fa-shopping-cart"></i> 情報入力に進む
+    <div class="col-lg-4">
+      <%= link_to root_path, class:"btn btn-primary btn-lg" do %>
+        <i class="fas fa-shopping-cart"></i> 買い物を続ける
       <% end %>
     </div>
-    <div class="col-lg-3">
-      <%= link_to cart_item_cart_items_destroy_all_path(current_customer.cart_items), class:"text-light", method: :delete do %>
-        <i class="fas fa-trash-alt"></i> カートを空にする
+    <div class="col-lg-4">
+      <%= link_to new_order_path(current_customer), class:"btn btn-success btn-lg" do %>
+        <i class="fas fa-file-alt"></i> 情報入力に進む
       <% end %>
     </div>
   </div>
-</container>
+</div>
