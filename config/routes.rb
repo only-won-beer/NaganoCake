@@ -31,7 +31,9 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :deliveries, only: [:index, :destroy, :edit, :update, :create]
-    resource :customers, only: [:show,:edit,:update]
+    resource :customers, only: [:show,:edit,:update] do
+      get :favorites
+    end
 
     patch 'customers/withdraw' => 'customers#withdraw'
     get 'customers/quit' => 'customers#quit'
