@@ -60,7 +60,9 @@
       </div>
       <div class="col-lg-7">
         <div class"row mb-3"><h3>お客様の声</h3></div>
-        <div class"row"><%= render 'public/reviews/reviews_index', item: @item %></div>
+        <div class"review_index_<%= @item.id %>">
+           <%= render 'public/reviews/reviews_index', item: @item %>
+        </div>
       </div>
     <% elsif customer_signed_in? %>
       <div class="col-lg-4 mr-3">
@@ -70,8 +72,11 @@
     <% elsif @item.reviews.exists? %>
       <div class="col-lg-8 offset-2 mt-5 mb-3">
         <div class"row mb-3"><h3>お客様の声</h3></div>
-        <div class"row"><%= render 'public/reviews/reviews_index', item: @item %></div>
+        <div class"review_index_<%= @item.id %>">
+          <%= render 'public/reviews/reviews_index', item: @item %>
+        </div>
       </div>
     <% else %>
     <% end %>
   </div>
+</div>
